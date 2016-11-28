@@ -1,0 +1,48 @@
+/app/config/parameters.yml
+/build/
+/phpunit.xml
+/var/*
+!/var/cache
+/var/cache/*
+!var/cache/.gitkeep
+!/var/logs
+/var/logs/*
+!var/logs/.gitkeep
+!/var/sessions
+/var/sessions/*
+!var/sessions/.gitkeep
+!var/SymfonyRequirements.php
+/vendor/
+/web/bundles/
+
+### IDE config files
+.idea/copyright/profiles_settings.xml
+.idea/symfony2.xml
+.idea/encodings.xml
+.idea/insult.es.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/jsLibraryMappings.xml
+.idea/workspace.xml
+
+### Doxygen generated files
+/doc/doxygen
+
+### Generated assets files
+/web/assetic
+/web/images
+/web/css
+/web/fonts
+/web/app.css
+/web/app.css.map
+/web/app.js
+/web/app.js.map
+/web/img
+/web/vendor
+/node_modules/
+
+### Uploaded files
+/web/uploads
+
+### chore files
+composer.phar

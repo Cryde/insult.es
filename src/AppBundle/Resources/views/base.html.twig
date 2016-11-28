@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8"/>
+    <title>{% block title %}Insult.es !{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('app.css') }}"/>
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}"/>
+    <meta name="google-site-verification" content="XTpd1lrH56vRQT1CUsbPDxaDXSlr2xgOjdmRHdKVMIU"/>
+    <meta name="description" content="@TODO">
+    <meta property="og:site_name" content="Insult.es"/>
+    <meta property="og:title" content="@TODO"/>
+    <meta property="og:description" content="@TODO"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="@TODO"/>
+    <meta property="og:image" content="{{ asset('images/facebook.png') }}"/>
+    <meta property="og:locale" content="fr_FR"/>
+</head>
+<body>
+{% include '@App/navbar.html.twig' %}
+
+<div class="hp"></div>
+<div class="insulte">
+    {% block body %}
+    {% endblock %}
+</div>
+</body>
+</html>

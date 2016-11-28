@@ -1,0 +1,24 @@
+{
+  "author": "Insult.es",
+  "name": "insult.es",
+  "description": "Assets manager common tools for insult.es",
+  "version": "0.0.1",
+  "scripts": {
+    "build:dev": "brunch w -s",
+    "build:prod": "brunch b -p"
+  },
+  "devDependencies": {
+    "auto-reload-brunch": "^2.7.1",
+    "babel-brunch": "^6.0.6",
+    "babel-cli": "^6.16.0",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-latest": "^6.16.0",
+    "brunch": "^2.8.2",
+    "clean-css-brunch": "^2.0.0",
+    "css-brunch": "^2.6.1",
+    "javascript-brunch": "^2.0.0",
+    "uglify-js-brunch": "^2.0.1"
+  },
+  "dependencies": {
+  }
+}

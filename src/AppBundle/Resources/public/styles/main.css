@@ -1,0 +1,174 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+a {
+    text-decoration: none
+}
+
+a img {
+    border: none
+}
+
+body {
+    font-family: 'PT Sans', sans-serif;
+    background: #262626;
+}
+
+#navbar {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 69px;
+    background: #1A1A1A;
+    border-top: 1px solid #0D0D0D;
+}
+
+nav {
+    width: 100%
+}
+
+nav a.logo {
+    float: left;
+    margin: 14px 0 0 49px;
+    width: 164px;
+    height: 41px;
+    background: url(/images/design/sprite.png) no-repeat 0 -119px;
+}
+
+nav .menu {
+    list-style: none;
+    height: 69px;
+    float: right;
+    border-left: 1px solid #262626;
+}
+
+nav li {
+    height: 69px;
+    float: left;
+    border-left: 1px solid #0D0D0D;
+    border-right: 1px solid #262626;
+    position: relative;
+}
+
+nav li a {
+    color: #6C6C6C;
+    display: block;
+    height: 44px;
+    padding: 25px 49px 0 49px;
+}
+
+nav li a.active {
+    background: #0D0D0D
+}
+
+nav li a:hover,
+nav li a.active {
+    color: #bfbfbf
+}
+
+nav li a span {
+    float: left;
+    margin: 3px 7px 0 0;
+    width: 15px;
+    height: 15px;
+    background-image: url(/images/design/sprite.png);
+}
+
+nav li a span.aleatoire {
+    width: 18px;
+    height: 14px;
+    background-position: 0 -170px;
+}
+
+nav li a:hover span.aleatoire {
+    background-position: -28px -170px
+}
+
+nav li a span.ajouter {
+    background-position: -56px -169px
+}
+
+nav li a:hover span.ajouter,
+nav li a.active span.ajouter {
+    background-position: -81px -169px
+}
+
+nav li a span.glossaire {
+    width: 16px;
+    background-position: -107px -169px;
+}
+
+nav li a:hover span.glossaire {
+    background-position: -133px -169px
+}
+
+nav li a:last-of-type {
+    border-right: none
+}
+
+.form-send {
+    float: left;
+    position: absolute;
+    width: 86%;
+    bottom: 69px;
+    background: #0D0D0D;
+    border-top: 5px solid #52CB7B;
+    padding: 20px 7%;
+    display: none;
+}
+
+.form-send textarea {
+    font-family: 'PT Sans', sans-serif;
+    background: #E6E6E6;
+    border: none;
+    width: 94%;
+    padding: 12px 8px 12px 7px;
+    resize: none;
+}
+
+.form-send label {
+    color: #874D4C;
+    font-size: 12px;
+    display: block;
+    margin: 9px 0 25px 0;
+}
+
+.form-send label input {
+    float: left;
+    margin: 1px 4px 0 0;
+}
+
+.form-send input[type="submit"] {
+    font-family: 'PT Sans', sans-serif;
+    width: 100%;
+    color: #265461;
+    background: #53AECD;
+    border: 1px solid #60C4E6;
+    padding: 8px 0;
+}
+
+.hp {
+    background: url(/images/design/sprite.png) no-repeat 0 0;
+    width: 86px;
+    height: 78px;
+    margin: 24px auto 0 auto;
+}
+
+.insulte {
+    min-width: 200px;
+    max-width: 725px;
+    height: 280px;
+    margin: 45px auto 0 auto;
+    color: #cfcfe5;
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    text-shadow: 1px 2px 1px #000000;
+    filter: dropshadow(color=#000000, offx=1, offy=2);
+}
+
+.insulte a {
+    color: #cfcfe5
+}
