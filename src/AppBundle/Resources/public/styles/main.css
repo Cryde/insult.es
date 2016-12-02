@@ -76,22 +76,22 @@ nav li a span {
     background-image: url(/images/design/sprite.png);
 }
 
-nav li a span.aleatoire {
+nav li a span.random {
     width: 18px;
     height: 14px;
     background-position: 0 -170px;
 }
 
-nav li a:hover span.aleatoire {
+nav li a:hover span.random {
     background-position: -28px -170px
 }
 
-nav li a span.ajouter {
+nav li a span.add-icon {
     background-position: -56px -169px
 }
 
-nav li a:hover span.ajouter,
-nav li a.active span.ajouter {
+nav li a:hover span.add-icon,
+nav li a.active span.add-icon {
     background-position: -81px -169px
 }
 
@@ -147,6 +147,7 @@ nav li a:last-of-type {
     background: #53AECD;
     border: 1px solid #60C4E6;
     padding: 8px 0;
+    cursor: pointer;
 }
 
 .hp {
@@ -156,7 +157,7 @@ nav li a:last-of-type {
     margin: 24px auto 0 auto;
 }
 
-.insulte {
+.insult {
     min-width: 200px;
     max-width: 725px;
     height: 280px;
@@ -169,6 +170,6 @@ nav li a:last-of-type {
     filter: dropshadow(color=#000000, offx=1, offy=2);
 }
 
-.insulte a {
+.insult a {
     color: #cfcfe5
 }
