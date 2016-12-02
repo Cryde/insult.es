@@ -17,8 +17,8 @@
     "clean-css-brunch": "^2.0.0",
     "css-brunch": "^2.6.1",
     "javascript-brunch": "^2.0.0",
+    "jquery": "^2.2.4",
     "uglify-js-brunch": "^2.0.1"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
