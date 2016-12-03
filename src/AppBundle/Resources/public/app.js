@@ -45,7 +45,7 @@ function submitInsult(e) {
   const insult = $('textarea[name="insult"]').val().trim();
 
   $.ajax({
-    url: 'verif',
+    url: Routing.generate('api_add_insult'),
     type: 'POST',
     data: {insult},
     dataType: 'json'

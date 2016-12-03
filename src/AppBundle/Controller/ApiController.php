@@ -12,7 +12,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class ApiController extends Controller
 {
     /**
-     * @Route("/add")
+     * @Route("/add",
+     *     options = { "expose" = true },
+     *     name = "api_add_insult"
+     * )
      * @Method({"POST"})
      */
     public function addAction()
