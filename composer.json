@@ -1,6 +1,7 @@
 {
     "name": "cryde/insult.es",
-    "license": "proprietary",
+    "description": "",
+    "license": "MIT",
     "type": "project",
     "autoload": {
         "psr-4": {
