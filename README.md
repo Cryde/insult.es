@@ -11,4 +11,5 @@ There is still few things in progress.
 - Add more checks when posting insult (disallow spam posting, ...)
 - Vote for insult (+ / -)
 - Flag an insult as inappropriate
+- Remove jQuery dependency
 - Admin area where we could manage insults (just for fun)
