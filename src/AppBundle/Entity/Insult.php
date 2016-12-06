@@ -3,12 +3,15 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Insult
  *
  * @ORM\Table(name="insult")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\InsultRepository")
+ * @UniqueEntity(fields="insultCanonical", message="Cette insulte a déjà été postée.")
  */
 class Insult
 {
@@ -24,7 +27,14 @@ class Insult
     /**
      * @var string
      *
-     * @ORM\Column(name="insult", type="string", length=255, unique=true)
+     * @ORM\Column(name="insult", type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 250,
+     *      minMessage = "Ton insulte doit au moins faire {{ limit }} caractères",
+     *      maxMessage = "Pas plus de {{ limit }} caractères STP"
+     * )
      */
     private $insult;
 

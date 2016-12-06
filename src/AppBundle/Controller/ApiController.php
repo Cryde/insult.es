@@ -2,9 +2,11 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Insult;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @Route("/api")
@@ -17,9 +19,37 @@ class ApiController extends Controller
      *     name = "api_add_insult"
      * )
      * @Method({"POST"})
+     *
+     * @param Request $request
+     *
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function addAction()
+    public function addAction(Request $request)
     {
-        return $this->json(['success' => 'ok']);
+        $em = $this->getDoctrine()->getManager();
+        $insult = $request->get('insult', '');
+        $canonicalinsult = $this->get('slugify')->slugify($insult);
+
+        $insultEntity = new Insult();
+        $insultEntity->setInsult($insult);
+        $insultEntity->setInsultCanonical($canonicalinsult);
+        $insultEntity->setDatePost(new \DateTime());
+
+        $validator = $this->get('validator');
+        $errors = $validator->validate($insultEntity);
+
+        if (count($errors) > 0) {
+            $strErrors = [];
+            foreach ($errors as $error) {
+                $strErrors[] = $error->getMessage();
+            }
+
+            return $this->json(['success' => false, 'message' => $strErrors]);
+        }
+
+        $em->persist($insultEntity);
+        $em->flush();
+
+        return $this->json(['success' => true]);
     }
 }

@@ -54,7 +54,7 @@ function submitInsult(e) {
       if (response.success) {
         // @TODO do something
       } else {
-        alert(response.message)
+        alert(response.message.join("\n"));
       }
     });
 }
