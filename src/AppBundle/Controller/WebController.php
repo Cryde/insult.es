@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Insult;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -12,11 +13,13 @@ class WebController extends Controller
      */
     public function indexAction()
     {
-        // replace this example code with whatever you need
+        /** @var Insult $randomInsult */
+        $randomInsult = $this->getDoctrine()->getRepository(Insult::class)->getRandom();
+
         return $this->render('@App/web/insult.html.twig', [
             'insult' => [
-                'id'    => 1,
-                'value' => 'Connard'
+                'id'    => $randomInsult->getId(),
+                'value' => $randomInsult->getInsult()
             ]
         ]);
     }
