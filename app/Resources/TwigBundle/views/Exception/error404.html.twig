@@ -1,0 +1,10 @@
+{% extends '@App/base.html.twig' %}
+
+{% block body %}
+    <h1>Page non trouvée ! 😱</h1>
+
+    <p>
+        La page demandée n'a pas pu être trouvée.
+        Regarde si tu n'as pas fait une erreur dans l'url sinon rends-toi <a href="{{ path('homepage') }}">sur la page d'accueil</a>.
+    </p>
+{% endblock %}
