@@ -17,9 +17,12 @@ function init() {
   $('.menu a:first').click(function (e) {
     if (totalClick < 10) {
       e.preventDefault();
-      $.get('insulte-aleatoire', function (data) {
-        $('.insulte').text('').html(data);
-      });
+      $.get(Routing.generate('api_get_random_insult'))
+        .done(function (response) {
+          const $insultContainer = $('.insult');
+          $insultContainer.find('a').attr('href', response.insult.id);
+          $insultContainer.find('span').text(response.insult.value);
+        });
       totalClick++;
     } else {
       location.reload();

@@ -57,4 +57,27 @@ class ApiController extends Controller
             'insult'  => ['id' => $insultEntity->getId(), 'value' => $insultEntity->getInsult()]
         ], Response::HTTP_CREATED);
     }
+
+    /**
+     * @Route("/random",
+     *     options = { "expose" = true },
+     *     name = "api_get_random_insult",
+     *     condition="request.isXmlHttpRequest()"
+     * )
+     * @Method({"GET"})
+     *
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     */
+    public function getRandomInsultAction()
+    {
+        /** @var Insult $randomInsult */
+        $randomInsult = $this->getDoctrine()->getRepository(Insult::class)->getRandom();
+
+        return $this->json([
+            'insult' => [
+                'id'    => $randomInsult->getId(),
+                'value' => $randomInsult->getInsult()
+            ]
+        ]);
+    }
 }
