@@ -17,7 +17,8 @@ class ApiController extends Controller
     /**
      * @Route("/add",
      *     options = { "expose" = true },
-     *     name = "api_add_insult"
+     *     name = "api_add_insult",
+     *     condition="request.isXmlHttpRequest()"
      * )
      * @Method({"POST"})
      *
