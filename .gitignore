@@ -15,8 +15,6 @@
 /vendor/
 /web/bundles/
 
-### IDE config files
-.idea/
 
 ### Doxygen generated files
 /doc/doxygen
