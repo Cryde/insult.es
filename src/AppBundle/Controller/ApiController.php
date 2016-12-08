@@ -7,6 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @Route("/api")
@@ -50,6 +51,6 @@ class ApiController extends Controller
         $em->persist($insultEntity);
         $em->flush();
 
-        return $this->json(['success' => true]);
+        return $this->json(['success' => true], Response::HTTP_CREATED);
     }
 }
