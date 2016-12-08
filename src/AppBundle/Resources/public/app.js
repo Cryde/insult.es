@@ -42,7 +42,10 @@ function submitInsult(e) {
 
   e.preventDefault();
 
-  const insult = $('textarea[name="insult"]').val().trim();
+  const $textarea = $('textarea[name="insult"]'),
+    insult = $textarea.val().trim();
+
+  $textarea.val('');
 
   $.ajax({
     url: Routing.generate('api_add_insult'),
@@ -52,8 +55,11 @@ function submitInsult(e) {
   })
     .done(function (response) {
       if (response.success) {
-        // @TODO do something
+        const $insultContainer = $('.insult');
+        $insultContainer.find('a').attr('href', response.insult.id);
+        $insultContainer.find('span').text(response.insult.value);
       } else {
+        $textarea.val(insult);
         alert(response.message.join("\n"));
       }
     });

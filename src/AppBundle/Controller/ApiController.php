@@ -52,6 +52,9 @@ class ApiController extends Controller
         $em->persist($insultEntity);
         $em->flush();
 
-        return $this->json(['success' => true], Response::HTTP_CREATED);
+        return $this->json([
+            'success' => true,
+            'insult'  => ['id' => $insultEntity->getId(), 'value' => $insultEntity->getInsult()]
+        ], Response::HTTP_CREATED);
     }
 }
