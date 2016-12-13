@@ -1,4 +1,4 @@
-import $ from "jquery"; // @TODO probably don't need jquery
+import $ from "jquery";
 
 export {init};
 
