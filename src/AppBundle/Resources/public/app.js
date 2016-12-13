@@ -19,9 +19,14 @@ function init() {
       e.preventDefault();
       $.get(Routing.generate('api_get_random_insult'))
         .done(function (response) {
-          const $insultContainer = $('.insult');
-          $insultContainer.find('a').attr('href', response.insult.id);
-          $insultContainer.find('span').text(response.insult.value);
+          const $insultContainer = $('.insult'),
+            $link = $insultContainer.find('a');
+          if($link.length) {
+            $link.attr('href', response.insult.id);
+            $insultContainer.find('span').text(response.insult.value);
+          } else {
+            location.href = '/';
+          }
         });
       totalClick++;
     } else {
