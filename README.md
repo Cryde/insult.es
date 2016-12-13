@@ -4,15 +4,4 @@ All of this code is not in "production" yet.
 There is still few things in progress.
 
 
-### TODOS
-
-- Blacklisted insults
-- Add more checks when posting insult (disallow spam posting, ...)
-- Vote for insult (+ / -)
-- Flag an insult as inappropriate
-- Remove jQuery dependency
-- Admin area where we could manage insults (just for fun)
-
-### DONE 
-
-- Retrieve a single insult
+Check issues to see what's coming next !
