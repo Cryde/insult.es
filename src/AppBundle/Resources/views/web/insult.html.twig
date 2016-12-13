@@ -1,5 +1,8 @@
 {% extends "@App/base.html.twig" %}
 
 {% block body %}
-    <a title="Cliquez moi et partagez moi !" href="{{ insult.id }}">#</a> <span>{{ insult.value }}</span>
+    {% if insult.displayHashtag %}
+    <a title="Cliquez moi et partagez moi !" href="{{ url('single_insult', {id: insult.id}) }}">#</a>
+    {% endif %}
+    <span>{{ insult.value }}</span>
 {% endblock %}

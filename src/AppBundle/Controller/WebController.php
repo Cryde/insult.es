@@ -20,8 +20,29 @@ class WebController extends Controller
 
         return $this->render('@App/web/insult.html.twig', [
             'insult' => [
-                'id'    => $randomInsult->getId(),
-                'value' => $randomInsult->getInsult()
+                'id'             => $randomInsult->getId(),
+                'value'          => $randomInsult->getInsult(),
+                'displayHashtag' => true
+            ]
+        ]);
+    }
+
+    /**
+     * @Route("insult/{id}", name="single_insult")
+     * @Method({"GET"})
+     * @param $id
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function getInsultAction($id)
+    {
+        $insult = $this->getDoctrine()->getRepository(Insult::class)->find($id);
+
+        return $this->render('@App/web/insult.html.twig', [
+            'insult' => [
+                'id'             => $insult->getId(),
+                'value'          => $insult->getInsult(),
+                'displayHashtag' => false
             ]
         ]);
     }
