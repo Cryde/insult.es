@@ -34,7 +34,7 @@ function init() {
     }
   });
 
-  $(this).keydown(function (e) {
+  $(document).keydown(function (e) {
     if ($('.form-send').is(':hidden')) {
       var k = parseInt(e.which, 10);
       if (k == 32 || k == 73) {
