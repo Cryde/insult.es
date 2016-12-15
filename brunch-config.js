@@ -17,6 +17,11 @@ module.exports = {
             removeEmpty: true,
             keepSpecialComments: 0,
             restructure: true
+        },
+        eslint: {
+            pattern: /^src\/AppBundle\/Resources\/public\/.*\.js?$/,
+            warnOnly: true,
+            config: {rules: {'array-callback-return': 'warn'}}
         }
     },
     paths: {
