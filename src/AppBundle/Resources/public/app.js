@@ -8,4 +8,4 @@ function init() {
   handleClickMenu();
 }
 
-export { init };
+export default init;
