@@ -27,7 +27,7 @@ function randomMenuItemClick(e) {
     totalClick += 1;
 
     getRandom()
-      .done(handleGetRandomResponse);
+      .then(handleGetRandomResponse);
   } else {
     location.reload();
   }

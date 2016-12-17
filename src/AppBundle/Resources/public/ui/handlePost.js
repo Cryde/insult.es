@@ -32,7 +32,7 @@ function submitInsult(e) {
   $textarea.val('');
 
   post(insult)
-    .done(handlePostResponse({ $textarea, insult }));
+    .then(handlePostResponse({ $textarea, insult }));
 }
 
 export default function handlePost() {
