@@ -1,7 +1,7 @@
 /* global Routing */
 
-import $ from 'jquery';
+import responseJson from '../utils/responseJson';
 
 export default function getRandom() {
-  return $.get(Routing.generate('api_get_random_insult'));
+  return fetch(Routing.generate('api_get_random_insult')).then(responseJson);
 }
