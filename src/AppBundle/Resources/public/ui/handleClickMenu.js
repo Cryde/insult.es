@@ -1,4 +1,4 @@
-import $ from 'jquery';
+
 import getRandom from '../api/getRandom';
 
 let totalClick = 0; // Refresh
@@ -7,12 +7,12 @@ let totalClick = 0; // Refresh
  * @param response
  */
 function handleGetRandomResponse(response) {
-  const $insultContainer = $('.insult');
-  const $link = $insultContainer.find('a');
+  const insultContainer = document.querySelector('.insult');
+  const link = insultContainer.querySelector('a');
 
-  if ($link.length) {
-    $link.attr('href', response.insult.id);
-    $insultContainer.find('span').text(response.insult.value);
+  if (link) {
+    link.setAttribute('href', response.insult.id);
+    insultContainer.querySelector('span').innerText = response.insult.value;
   } else {
     location.href = '/';
   }
@@ -38,12 +38,20 @@ function randomMenuItemClick(e) {
  */
 function addInsultMenuItemClick(e) {
   e.preventDefault();
-  $(this).toggleClass('active');
-  $('.form-send').toggle();
+  this.classList.toggle('active');
+  document
+    .querySelector('.form-send')
+    .classList
+    .toggle('show');
 }
 
 
 export default function handleClickMenu() {
-  $('nav li a.add').click(addInsultMenuItemClick);
-  $('.menu a:first').click(randomMenuItemClick);
+  document
+    .querySelector('nav li a.add')
+    .addEventListener('click', addInsultMenuItemClick, false);
+
+  document
+    .querySelector('.menu a:first-child')
+    .addEventListener('click', randomMenuItemClick, false);
 }
