@@ -1,15 +1,14 @@
-import $ from 'jquery';
-
 function handleSpaceTap(e) {
-  if ($('.form-send').is(':hidden')) {
-    const k = parseInt(e.which, 10);
-    if (k === 32 || k === 73) {
-      $('.menu a:first').click();
+  const formClassList = document.querySelector('.form-send').classList;
+  if (!formClassList.contains('show')) {
+    const key = parseInt(e.keyCode, 10);
+    if (key === 32 || key === 73) {
+      document.querySelector('.menu a:first-child').click();
       e.preventDefault();
     }
   }
 }
 
 export default function handleKeyboard() {
-  $(document).keydown(handleSpaceTap);
+  document.addEventListener('keydown', handleSpaceTap, false);
 }
