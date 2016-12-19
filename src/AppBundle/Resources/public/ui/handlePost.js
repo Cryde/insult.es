@@ -1,20 +1,18 @@
-import $ from 'jquery';
 import post from '../api/post';
 
 /**
- * @param $textarea
  * @param insult
  * @returns {function(*)}
  */
-function handlePostResponse({ $textarea, insult }) {
+function handlePostResponse({ insult }) {
   return (response) => {
     if (response.success) {
-      const $insultContainer = $('.insult');
-      $insultContainer.find('a').attr('href', response.insult.id);
-      $insultContainer.find('span').text(response.insult.value);
-      $('nav li a.add').click();
+      const insultContainer = document.querySelector('.insult');
+      insultContainer.querySelector('a').setAttribute('href', response.insult.id);
+      insultContainer.querySelector('span').innerText = response.insult.value;
+      document.querySelector('nav li a.add').click();
     } else {
-      $textarea.val(insult);
+      document.querySelector('textarea[name="insult"]').value = insult;
       alert(response.message.join('\n'));
     }
   };
@@ -26,15 +24,17 @@ function handlePostResponse({ $textarea, insult }) {
 function submitInsult(e) {
   e.preventDefault();
 
-  const $textarea = $('textarea[name="insult"]');
-  const insult = $textarea.val().trim();
+  const textarea = document.querySelector('textarea[name="insult"]');
+  const insult = textarea.value.trim();
 
-  $textarea.val('');
+  textarea.value = '';
 
   post(insult)
-    .done(handlePostResponse({ $textarea, insult }));
+    .then(handlePostResponse({ insult }));
 }
 
 export default function handlePost() {
-  $('.form-send form').submit(submitInsult);
+  document
+    .querySelector('.form-send form')
+    .addEventListener('submit', submitInsult, false);
 }

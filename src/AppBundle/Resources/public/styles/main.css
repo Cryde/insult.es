@@ -118,6 +118,9 @@ nav li a:last-of-type {
     padding: 20px 7%;
     display: none;
 }
+.form-send.show {
+    display: block;
+}
 
 .form-send textarea {
     font-family: 'PT Sans', sans-serif;

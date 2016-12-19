@@ -26,6 +26,6 @@
     "uglify-js-brunch": "^2.0.1"
   },
   "dependencies": {
-    "jquery": "^2.2.4"
+    "whatwg-fetch": "^2.0.1"
   }
 }

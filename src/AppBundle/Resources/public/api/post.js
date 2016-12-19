@@ -1,12 +1,12 @@
 /* global Routing */
 
-import $ from 'jquery';
+import responseJson from '../utils/responseJson';
 
 export default function post(insult) {
-  return $.ajax({
-    url: Routing.generate('api_add_insult'),
-    type: 'POST',
-    data: { insult },
-    dataType: 'json',
-  });
+  const datas = new FormData();
+  datas.append('insult', insult);
+  return fetch(Routing.generate('api_add_insult'), {
+    method: 'POST',
+    body: datas,
+  }).then(responseJson);
 }
