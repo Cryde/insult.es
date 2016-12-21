@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "556cfc194331c054ad181310e51b421c",
-    "content-hash": "a7c814c058b4a783582645759bfcce8f",
+    "hash": "79ca4077f8a53085be9c3d8f6f5fc558",
+    "content-hash": "192ef554242d0e25e8c5f06161edb52f",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -2488,6 +2488,69 @@
         }
     ],
     "packages-dev": [
+        {
+            "name": "deployer/recipes",
+            "version": "4.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/deployphp/recipes.git",
+                "reference": "9447677c18d14a2685159daa3d97107f2a8b8333"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/deployphp/recipes/zipball/9447677c18d14a2685159daa3d97107f2a8b8333",
+                "reference": "9447677c18d14a2685159daa3d97107f2a8b8333",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Samuel Gordalina",
+                    "email": "samuel.gordalina@gmail.com",
+                    "homepage": "https://gordalina.com",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Tomas Majer",
+                    "email": "tomasmajer@gmail.com",
+                    "homepage": "http://tomaj.sk",
+                    "role": "Contributor"
+                },
+                {
+                    "name": "Hubert Kowalski",
+                    "email": "h.kowalski@hakger.pl",
+                    "homepage": "https://hakger.pl",
+                    "role": "Contributor"
+                },
+                {
+                    "name": "Anton Medvedev",
+                    "email": "anton@medv.io",
+                    "homepage": "http://medv.io",
+                    "role": "Contributor"
+                }
+            ],
+            "description": "3rd party deployer recipes",
+            "homepage": "https://github.com/deployphp/recipes",
+            "keywords": [
+                "cachetool",
+                "deploy",
+                "deployer",
+                "deployment",
+                "newrelic",
+                "recipes",
+                "slack"
+            ],
+            "time": "2016-11-28 12:45:22"
+        },
         {
             "name": "sensio/generator-bundle",
             "version": "v3.1.2",
