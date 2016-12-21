@@ -1,3 +1,4 @@
+/* global Routing */
 
 import getRandom from '../api/getRandom';
 
@@ -11,7 +12,7 @@ function handleGetRandomResponse(response) {
   const link = insultContainer.querySelector('a');
 
   if (link) {
-    link.setAttribute('href', response.insult.id);
+    link.setAttribute('href', Routing.generate('single_insult', { id: response.insult.id }));
     insultContainer.querySelector('span').innerText = response.insult.value;
   } else {
     location.href = '/';
