@@ -28,7 +28,10 @@ class WebController extends Controller
     }
 
     /**
-     * @Route("insult/{id}", name="single_insult")
+     * @Route("insult/{id}",
+     *     options = { "expose" = true },
+     *     name="single_insult"
+     * )
      * @Method({"GET"})
      * @param $id
      *
