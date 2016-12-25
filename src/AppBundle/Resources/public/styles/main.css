@@ -12,8 +12,13 @@ a img {
 }
 
 body {
-    font-family: 'PT Sans', sans-serif;
     background: #262626;
+    font-family: "Helvetica Neue", "Calibri Light", Roboto, sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0.02em;
+    box-sizing: border-box;
 }
 
 #navbar {
@@ -123,7 +128,7 @@ nav li a:last-of-type {
 }
 
 .form-send textarea {
-    font-family: 'PT Sans', sans-serif;
+    font-family: "Helvetica Neue", "Calibri Light", Roboto, sans-serif;
     background: #E6E6E6;
     border: none;
     width: 94%;
@@ -144,7 +149,7 @@ nav li a:last-of-type {
 }
 
 .form-send input[type="submit"] {
-    font-family: 'PT Sans', sans-serif;
+    font-family: "Helvetica Neue", "Calibri Light", Roboto, sans-serif;
     width: 100%;
     color: #265461;
     background: #53AECD;
