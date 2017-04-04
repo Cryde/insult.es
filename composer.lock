@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bb96459f5c664baad6088552d556ec28",
-    "content-hash": "192ef554242d0e25e8c5f06161edb52f",
+    "hash": "8f2ef94768386aea0493b352c64c096f",
+    "content-hash": "cc5c622408d151c4fd12cb01c1698e53",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -2560,16 +2560,16 @@
     "packages-dev": [
         {
             "name": "deployer/recipes",
-            "version": "4.0.7",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/deployphp/recipes.git",
-                "reference": "4811488d2f210e5d93e874d9615aea8b58dc3aa2"
+                "reference": "fee2e453cc20ac15daa2ed48952204c271e37efb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/deployphp/recipes/zipball/4811488d2f210e5d93e874d9615aea8b58dc3aa2",
-                "reference": "4811488d2f210e5d93e874d9615aea8b58dc3aa2",
+                "url": "https://api.github.com/repos/deployphp/recipes/zipball/fee2e453cc20ac15daa2ed48952204c271e37efb",
+                "reference": "fee2e453cc20ac15daa2ed48952204c271e37efb",
                 "shasum": ""
             },
             "replace": {
@@ -2622,7 +2622,7 @@
                 "recipes",
                 "slack"
             ],
-            "time": "2017-03-27 16:28:47"
+            "time": "2017-04-03 18:16:35"
         },
         {
             "name": "sensio/generator-bundle",
@@ -2743,7 +2743,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "deployer/recipes": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
