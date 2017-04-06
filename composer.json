@@ -36,7 +36,7 @@
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
         "symfony/phpunit-bridge": "^3.0",
-        "deployer/recipes": "dev-master#fee2e453cc20ac15daa2ed48952204c271e37efb"
+        "deployer/recipes": "dev-master"
     },
     "scripts": {
         "symfony-scripts": [
