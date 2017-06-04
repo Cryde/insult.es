@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new Cocur\Slugify\Bridge\Symfony\CocurSlugifyBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
+            new \Symfony\Bundle\WebServerBundle\WebServerBundle(),
             new AppBundle\AppBundle(),
         ];
 
