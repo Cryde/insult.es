@@ -2,8 +2,9 @@
 
 import post from '../api/post';
 
+
 /**
- * @param insult
+ * @param {String} insult - The insult
  * @returns {function(*)}
  */
 function handlePostResponse({ insult }) {

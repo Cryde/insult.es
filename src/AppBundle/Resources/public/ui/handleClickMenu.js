@@ -1,6 +1,6 @@
 /* global Routing */
 
-import getRandom from '../api/getRandom';
+import getRandom from "../api/getRandom";
 
 let totalClick = 0; // Refresh
 
