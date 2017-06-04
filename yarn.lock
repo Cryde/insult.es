@@ -1743,6 +1743,10 @@ findup-sync@^0.4.2:
     micromatch "^2.3.7"
     resolve-dir "^0.1.0"
 
+fingerprint-brunch@^1.2.8:
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/fingerprint-brunch/-/fingerprint-brunch-1.2.8.tgz#d557bfbb4a7d11e31880f73d7e294a036a650bda"
+
 flat-cache@^1.2.1:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/flat-cache/-/flat-cache-1.2.2.tgz#fa86714e72c21db88601761ecf2f555d1abc6b96"

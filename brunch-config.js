@@ -22,6 +22,13 @@ module.exports = {
             pattern: /^src\/AppBundle\/Resources\/public\/.*\.js?$/,
             warnOnly: true,
             config: {rules: {'array-callback-return': 'warn'}}
+        },
+        fingerprint: {
+            manifest: './web/manifest.json',
+            autoClearOldFiles: true,
+            srcBasePath: 'web/',
+            hashLength: 15,
+            destBasePath: 'web/',
         }
     },
     paths: {
