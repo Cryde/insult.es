@@ -13,7 +13,7 @@ class InsultRepository extends \Doctrine\ORM\EntityRepository
      */
     public function getRandom()
     {
-        return  $this->createQueryBuilder('i')
+        return $this->createQueryBuilder('i')
             ->addSelect('RAND() as HIDDEN rand')
             ->addOrderBy('rand')
             ->setMaxResults(1)

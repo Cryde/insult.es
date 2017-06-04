@@ -27,17 +27,17 @@ class ApiController extends Controller
      */
     public function addAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $insult = $request->get('insult', '');
-        $canonicalinsult = $this->get('slugify')->slugify($insult);
+        $em              = $this->getDoctrine()->getManager();
+        $insult          = $request->get('insult', '');
+        $canonicalInsult = $this->get('slugify')->slugify($insult);
 
         $insultEntity = new Insult();
         $insultEntity->setInsult($insult);
-        $insultEntity->setInsultCanonical($canonicalinsult);
+        $insultEntity->setInsultCanonical($canonicalInsult);
         $insultEntity->setDatePost(new \DateTime());
 
         $validator = $this->get('validator');
-        $errors = $validator->validate($insultEntity);
+        $errors    = $validator->validate($insultEntity);
 
         if (count($errors) > 0) {
             $strErrors = [];
