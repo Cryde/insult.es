@@ -45,6 +45,9 @@ module.exports = {
     'assets': /^src\/AppBundle\/Resources\/public\/assets/
   },
   modules: {
+    autoRequire: {
+      'app.js': ['app']
+    },
     // This will allow us to require/import JS file without specify ALL the path
     nameCleaner: function (path) {
       return path.replace(/^src\/AppBundle\/Resources\/public\//, '');
