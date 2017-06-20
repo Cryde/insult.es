@@ -24,6 +24,7 @@
 /web/images
 /web/css
 /web/fonts
+/web/favicon.ico
 /web/manifest.json
 /web/*.css
 /web/*.css.map
