@@ -2,11 +2,13 @@
 
 namespace AppBundle\Repository;
 
+use Doctrine\ORM\EntityRepository;
+
 /**
  * InsultRepository
  *
  */
-class InsultRepository extends \Doctrine\ORM\EntityRepository
+class InsultRepository extends EntityRepository
 {
     /**
      * @return mixed
