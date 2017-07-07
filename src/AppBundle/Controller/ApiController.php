@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Insult;
+use AppBundle\Repository\InsultRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -64,12 +65,14 @@ class ApiController extends Controller
      * )
      * @Method({"GET"})
      *
+     * @param InsultRepository $insultRepository
+     *
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function getRandomInsultAction()
+    public function getRandomInsultAction(InsultRepository $insultRepository)
     {
         /** @var Insult $randomInsult */
-        $randomInsult = $this->getDoctrine()->getRepository(Insult::class)->getRandom();
+        $randomInsult = $insultRepository->getRandom();
 
         return $this->json([
             'insult' => [
