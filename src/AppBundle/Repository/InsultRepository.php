@@ -16,8 +16,7 @@ class InsultRepository extends EntityRepository
     public function getRandom()
     {
         return $this->createQueryBuilder('i')
-            ->addSelect('RAND() as HIDDEN rand')
-            ->addOrderBy('rand')
+            ->addOrderBy('RAND()')
             ->setMaxResults(1)
             ->getQuery()
             ->getSingleResult();
