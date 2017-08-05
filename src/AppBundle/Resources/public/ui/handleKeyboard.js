@@ -1,3 +1,6 @@
+/**
+ * @param e
+ */
 function handleSpaceTap(e) {
   const formClassList = document.querySelector('.form-send').classList;
   if (!formClassList.contains('show')) {

@@ -6,7 +6,7 @@ import post from '../api/post';
  * @param insult
  * @returns {function(*)}
  */
-function handlePostResponse({ insult }) {
+function handlePostResponse(insult) {
   return (response) => {
     if (response.success) {
       const insultContainer = document.querySelector('.insult');
@@ -39,7 +39,7 @@ function submitInsult(e) {
   textarea.value = '';
 
   post(insult)
-    .then(handlePostResponse({ insult }));
+    .then(handlePostResponse(insult));
 }
 
 export default function handlePost() {

@@ -3,8 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Insult
@@ -64,6 +64,16 @@ class Insult
     }
 
     /**
+     * Get insult
+     *
+     * @return string
+     */
+    public function getInsult()
+    {
+        return $this->insult;
+    }
+
+    /**
      * Set insult
      *
      * @param string $insult
@@ -78,13 +88,13 @@ class Insult
     }
 
     /**
-     * Get insult
+     * Get insultCanonical
      *
      * @return string
      */
-    public function getInsult()
+    public function getInsultCanonical()
     {
-        return $this->insult;
+        return $this->insultCanonical;
     }
 
     /**
@@ -102,13 +112,13 @@ class Insult
     }
 
     /**
-     * Get insultCanonical
+     * Get datePost
      *
-     * @return string
+     * @return \DateTime
      */
-    public function getInsultCanonical()
+    public function getDatePost()
     {
-        return $this->insultCanonical;
+        return $this->datePost;
     }
 
     /**
@@ -123,16 +133,6 @@ class Insult
         $this->datePost = $datePost;
 
         return $this;
-    }
-
-    /**
-     * Get datePost
-     *
-     * @return \DateTime
-     */
-    public function getDatePost()
-    {
-        return $this->datePost;
     }
 }
 

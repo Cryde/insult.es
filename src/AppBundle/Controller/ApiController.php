@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Insult;
+use AppBundle\Repository\InsultRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -27,17 +28,17 @@ class ApiController extends Controller
      */
     public function addAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $insult = $request->get('insult', '');
-        $canonicalinsult = $this->get('slugify')->slugify($insult);
+        $em              = $this->getDoctrine()->getManager();
+        $insult          = $request->get('insult', '');
+        $canonicalInsult = $this->get('slugify')->slugify($insult);
 
         $insultEntity = new Insult();
         $insultEntity->setInsult($insult);
-        $insultEntity->setInsultCanonical($canonicalinsult);
+        $insultEntity->setInsultCanonical($canonicalInsult);
         $insultEntity->setDatePost(new \DateTime());
 
         $validator = $this->get('validator');
-        $errors = $validator->validate($insultEntity);
+        $errors    = $validator->validate($insultEntity);
 
         if (count($errors) > 0) {
             $strErrors = [];
@@ -64,12 +65,14 @@ class ApiController extends Controller
      * )
      * @Method({"GET"})
      *
+     * @param InsultRepository $insultRepository
+     *
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function getRandomInsultAction()
+    public function getRandomInsultAction(InsultRepository $insultRepository)
     {
         /** @var Insult $randomInsult */
-        $randomInsult = $this->getDoctrine()->getRepository(Insult::class)->getRandom();
+        $randomInsult = $insultRepository->getRandom();
 
         return $this->json([
             'insult' => [
