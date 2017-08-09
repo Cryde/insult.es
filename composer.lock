@@ -1913,16 +1913,16 @@
         },
         {
             "name": "sensiolabs/security-checker",
-            "version": "v4.1.2",
+            "version": "v4.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/security-checker.git",
-                "reference": "9c7bfbc7be32781d39f8e262744f7fb0c410df67"
+                "reference": "7d60f01b9a56dfd152796877d009b1a0578d6ef4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/9c7bfbc7be32781d39f8e262744f7fb0c410df67",
-                "reference": "9c7bfbc7be32781d39f8e262744f7fb0c410df67",
+                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/7d60f01b9a56dfd152796877d009b1a0578d6ef4",
+                "reference": "7d60f01b9a56dfd152796877d009b1a0578d6ef4",
                 "shasum": ""
             },
             "require": {
@@ -1954,7 +1954,7 @@
                 }
             ],
             "description": "A security checker for your composer.lock",
-            "time": "2017-08-02T07:52:06+00:00"
+            "time": "2017-08-03T12:24:05+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2841,12 +2841,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/deployphp/recipes.git",
-                "reference": "305e02f36ec3fa909053ecef4d28be08896652ce"
+                "reference": "82b708689e180275d31f37c0baab6ec71ed7ef06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/deployphp/recipes/zipball/305e02f36ec3fa909053ecef4d28be08896652ce",
-                "reference": "305e02f36ec3fa909053ecef4d28be08896652ce",
+                "url": "https://api.github.com/repos/deployphp/recipes/zipball/82b708689e180275d31f37c0baab6ec71ed7ef06",
+                "reference": "82b708689e180275d31f37c0baab6ec71ed7ef06",
                 "shasum": ""
             },
             "replace": {
@@ -2884,7 +2884,7 @@
                 "slack",
                 "yarn"
             ],
-            "time": "2017-07-16T14:31:48+00:00"
+            "time": "2017-08-08T17:27:20+00:00"
         },
         {
             "name": "sensio/generator-bundle",
