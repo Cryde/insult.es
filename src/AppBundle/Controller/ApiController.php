@@ -77,7 +77,28 @@ class ApiController extends Controller
         return $this->json([
             'insult' => [
                 'id'    => $randomInsult->getId(),
-                'value' => $randomInsult->getInsult()
+                'value' => '#' . $randomInsult->getInsult()
+            ]
+        ]);
+    }
+
+    /**
+     * @Route("/insult/{id}",
+     *     options = { "expose" = true },
+     *     name = "api_get_insult"
+     * )
+     * @Method({"GET"})
+     *
+     * @param Insult $insult
+     *
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     */
+    public function getInsultAction(Insult $insult)
+    {
+        return $this->json([
+            'insult' => [
+                'id'    => $insult->getId(),
+                'value' => '#' . $insult->getInsult()
             ]
         ]);
     }

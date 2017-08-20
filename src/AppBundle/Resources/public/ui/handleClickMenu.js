@@ -1,37 +1,27 @@
-/* global Routing */
-
-import getRandom from '../api/getRandom';
-
-let totalClick = 0; // Refresh
+import { getInsult, getRandom } from '../api/insult';
 
 /**
  * @param response
  */
-function handleGetRandomResponse(response) {
+function displayInsult(response) {
   const insultContainer = document.querySelector('.insult');
-  const link = insultContainer.querySelector('a');
 
-  if (link) {
-    link.setAttribute('href', Routing.generate('single_insult', { id: response.insult.id }));
-    insultContainer.querySelector('span').innerText = response.insult.value;
-  } else {
-    location.href = '/';
-  }
+  insultContainer.querySelector('span').innerText = response.insult.value;
+  window.location.hash = response.insult.id;
+}
+
+function displayError() {
+  alert('Cette insulte n\'existe pas :/');
+  location.href = '/';
 }
 
 /**
  * @param e
  */
 function randomMenuItemClick(e) {
-  if (totalClick < 10) {
-    e.preventDefault();
-    totalClick += 1;
+  e.preventDefault();
 
-    getRandom()
-      .then(handleGetRandomResponse);
-  } else {
-    location.reload();
-  }
+  getRandom().then(displayInsult);
 }
 
 /**
@@ -46,13 +36,23 @@ function addInsultMenuItemClick(e) {
     .toggle('show');
 }
 
+function getInsultId() {
+  return +window.location.hash.replace('#', '');
+}
 
 export default function handleClickMenu() {
   document
     .querySelector('nav li a.add')
     .addEventListener('click', addInsultMenuItemClick, false);
 
-  document
-    .querySelector('.menu a:first-child')
-    .addEventListener('click', randomMenuItemClick, false);
+  const getRandomInsultSelector = document.querySelector('.menu a:first-child');
+  const insultId = getInsultId();
+
+  getRandomInsultSelector.addEventListener('click', randomMenuItemClick, false);
+
+  if (insultId) {
+    getInsult(insultId).then(displayInsult).catch(displayError);
+  } else {
+    getRandomInsultSelector.click();
+  }
 }
