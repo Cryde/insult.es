@@ -21,7 +21,7 @@ inventory('hosts.yml');
 // Tasks
 desc('Build Brunch assets');
 task('assets:build', function () {
-    run("cd {{release_path}} && {{bin/yarn}} run build:prod");
+    run('cd {{release_path}} && {{bin/yarn}} run build:prod');
 });
 after('yarn:install', 'assets:build');
 
