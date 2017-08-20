@@ -107,8 +107,8 @@ class ApiController extends Controller
         return [
             'insult' => [
                 'id'    => $insult->getId(),
-                'value' => '#' . $insult->getInsult()
-            ]
+                'value' => '#' . $insult->getInsult(),
+            ],
         ];
     }
 }
