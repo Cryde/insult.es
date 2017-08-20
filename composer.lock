@@ -965,16 +965,16 @@
         },
         {
             "name": "doctrine/orm",
-            "version": "v2.5.9",
+            "version": "v2.5.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "4f96fc62cef60093573acea955ed5e07643401d8"
+                "reference": "c78afd51721804f4f76ff30d9b6f6159eb046161"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/4f96fc62cef60093573acea955ed5e07643401d8",
-                "reference": "4f96fc62cef60093573acea955ed5e07643401d8",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/c78afd51721804f4f76ff30d9b6f6159eb046161",
+                "reference": "c78afd51721804f4f76ff30d9b6f6159eb046161",
                 "shasum": ""
             },
             "require": {
@@ -1037,7 +1037,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2017-08-16T13:30:32+00:00"
+            "time": "2017-08-18T19:17:35+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -2844,12 +2844,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/deployphp/recipes.git",
-                "reference": "8cf9e7eab3c83dd53d7eebb15f1b62baf355114b"
+                "reference": "0e9dcba1c991b9bbd8aeaae24ce09bb2efc41df8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/deployphp/recipes/zipball/8cf9e7eab3c83dd53d7eebb15f1b62baf355114b",
-                "reference": "8cf9e7eab3c83dd53d7eebb15f1b62baf355114b",
+                "url": "https://api.github.com/repos/deployphp/recipes/zipball/0e9dcba1c991b9bbd8aeaae24ce09bb2efc41df8",
+                "reference": "0e9dcba1c991b9bbd8aeaae24ce09bb2efc41df8",
                 "shasum": ""
             },
             "replace": {
@@ -2887,7 +2887,7 @@
                 "slack",
                 "yarn"
             ],
-            "time": "2017-08-17T06:44:39+00:00"
+            "time": "2017-08-18T13:38:18+00:00"
         },
         {
             "name": "sensio/generator-bundle",
