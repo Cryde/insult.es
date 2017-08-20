@@ -10,6 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Validator\ConstraintViolationListInterface;
 
 /**
  * @Route("/api")
@@ -42,12 +43,7 @@ class ApiController extends Controller
         $errors    = $validator->validate($insultEntity);
 
         if (count($errors) > 0) {
-            $strErrors = [];
-            foreach ($errors as $error) {
-                $strErrors[] = $error->getMessage();
-            }
-
-            return $this->json(['success' => false, 'message' => $strErrors]);
+            return $this->json(['success' => false, 'message' => $this->getErrorsArray($errors)]);
         }
 
         $em->persist($insultEntity);
@@ -55,7 +51,7 @@ class ApiController extends Controller
 
         return $this->json(
             array_merge(
-                ['success' => true,],
+                ['success' => true],
                 $this->formatInsult($insultEntity)
             ),
             Response::HTTP_CREATED
@@ -107,8 +103,23 @@ class ApiController extends Controller
         return [
             'insult' => [
                 'id'    => $insult->getId(),
-                'value' => '#' . $insult->getInsult(),
-            ],
+                'value' => '#' . $insult->getInsult()
+            ]
         ];
+    }
+
+    /**
+     * @param ConstraintViolationListInterface $errors
+     *
+     * @return array
+     */
+    private function getErrorsArray(ConstraintViolationListInterface $errors): array
+    {
+        $strErrors = [];
+        foreach ($errors as $error) {
+            $strErrors[] = $error->getMessage();
+        }
+
+        return $strErrors;
     }
 }
