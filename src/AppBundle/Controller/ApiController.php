@@ -74,12 +74,7 @@ class ApiController extends Controller
         /** @var Insult $randomInsult */
         $randomInsult = $insultRepository->getRandom();
 
-        return $this->json([
-            'insult' => [
-                'id'    => $randomInsult->getId(),
-                'value' => '#' . $randomInsult->getInsult()
-            ]
-        ]);
+        return $this->json($this->formatInsult($randomInsult));
     }
 
     /**
@@ -95,11 +90,21 @@ class ApiController extends Controller
      */
     public function getInsultAction(Insult $insult)
     {
-        return $this->json([
+        return $this->json($this->formatInsult($insult));
+    }
+
+    /**
+     * @param Insult $insult
+     *
+     * @return array
+     */
+    private function formatInsult(Insult $insult): array
+    {
+        return [
             'insult' => [
                 'id'    => $insult->getId(),
                 'value' => '#' . $insult->getInsult()
             ]
-        ]);
+        ];
     }
 }
