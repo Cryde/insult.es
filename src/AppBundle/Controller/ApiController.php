@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Insult;
 use AppBundle\Repository\InsultRepository;
+use Cocur\Slugify\Slugify;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -26,11 +27,11 @@ class ApiController extends Controller
      *
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function addAction(Request $request)
+    public function addAction(Request $request, Slugify $slugify)
     {
         $em              = $this->getDoctrine()->getManager();
         $insult          = $request->get('insult', '');
-        $canonicalInsult = $this->get('slugify')->slugify($insult);
+        $canonicalInsult = $slugify->slugify($insult);
 
         $insultEntity = new Insult();
         $insultEntity->setInsult($insult);
