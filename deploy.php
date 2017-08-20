@@ -20,13 +20,13 @@ inventory('hosts.yml');
 
 // Tasks
 desc('Build Brunch assets');
-task('assets:build', function () {
+task('assets:build', function() {
     run('cd {{release_path}} && {{bin/yarn}} run build:prod');
 });
 after('yarn:install', 'assets:build');
 
 desc('Restart PHP-FPM service');
-task('php-fpm:restart', function () {
+task('php-fpm:restart', function() {
     run('sudo systemctl restart php7.1-fpm.service');
 });
 after('deploy:symlink', 'php-fpm:restart');
