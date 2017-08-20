@@ -1,5 +1,3 @@
-/* global Routing */
-
 import post from '../api/post';
 
 /**
@@ -9,17 +7,8 @@ import post from '../api/post';
 function handlePostResponse(insult) {
   return (response) => {
     if (response.success) {
-      const insultContainer = document.querySelector('.insult');
-      const link = insultContainer.querySelector('a');
-      const route = Routing.generate('single_insult', { id: response.insult.id });
-
-      if (link) {
-        link.setAttribute('href', route);
-        insultContainer.querySelector('span').innerText = response.insult.value;
-        document.querySelector('nav li a.add').click();
-      } else {
-        location.href = route;
-      }
+      location.hash = response.insult.id;
+      location.reload();
     } else {
       document.querySelector('textarea[name="insult"]').value = insult;
       alert(response.message.join('\n'));
