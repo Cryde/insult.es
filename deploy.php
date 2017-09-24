@@ -25,6 +25,12 @@ task('assets:build', function() {
 });
 after('yarn:install', 'assets:build');
 
+desc('Remove node_modules folder');
+task('assets:clean', function() {
+    run('cd {{release_path}} && rm -rf node_modules');
+});
+after('deploy:symlink', 'assets:clean');
+
 desc('Restart PHP-FPM service');
 task('php-fpm:restart', function() {
     run('sudo systemctl restart php7.1-fpm.service');
