@@ -33,7 +33,7 @@ after('deploy:symlink', 'assets:clean');
 
 desc('Restart PHP-FPM service');
 task('php-fpm:restart', function() {
-    run('sudo systemctl restart php7.1-fpm.service');
+    run('sudo service php7.1-fpm reload');
 });
 after('deploy:symlink', 'php-fpm:restart');
 
