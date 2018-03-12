@@ -19,30 +19,30 @@ module.exports = {
       restructure: true
     },
     eslint: {
-     pattern: /^src\/AppBundle\/Resources\/public\/.*\.js?$/,
-     warnOnly: true,
-     config: {rules: {'array-callback-return': 'warn'}}
-     },
+      pattern: /^src\/Resources\/public\/.*\.js?$/,
+      warnOnly: true,
+      config: {rules: {'array-callback-return': 'warn'}}
+    },
     fingerprint: {
-      manifest: './web/manifest.json',
-      destBasePath: 'web/',
-      srcBasePath: 'web/',
+      manifest: './public/manifest.json',
+      destBasePath: 'public/',
+      srcBasePath: 'public/',
       autoClearOldFiles: true,
       autoReplaceAndHash: true,
-      publicRootPath: 'web/',
+      ///publicRootPath: 'web/',
       hashLength: 15,
       verbose: true
     }
   },
   paths: {
     // Change the "public" path (where the build will go)
-    "public": 'web/',
+    //"public": 'public/',
     // We change the "app" path
-    'watched': ['src/AppBundle/Resources/public']
+    'watched': ['src/Resources/public']
   },
   conventions: {
     // With this Brunch will copy all folder in this folder without touching them (img, font, ...)
-    'assets': /^src\/AppBundle\/Resources\/public\/assets/
+    'assets': /^src\/Resources\/public\/assets/
   },
   modules: {
     autoRequire: {
@@ -50,7 +50,7 @@ module.exports = {
     },
     // This will allow us to require/import JS file without specify ALL the path
     nameCleaner: function (path) {
-      return path.replace(/^src\/AppBundle\/Resources\/public\//, '');
+      return path.replace(/^src\/Resources\/public\//, '');
     }
   }
 };

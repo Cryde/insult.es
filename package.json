@@ -4,8 +4,8 @@
   "description": "Assets manager common tools for insult.es",
   "version": "0.0.1",
   "scripts": {
-    "build:dev": "brunch w -s",
-    "build:prod": "brunch b -p"
+    "watch": "brunch w -s",
+    "build": "brunch b -p"
   },
   "devDependencies": {
     "auto-reload-brunch": "^2.7.1",

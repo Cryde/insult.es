@@ -1,29 +1,40 @@
 <?php
-
 namespace Deployer;
 
-require 'recipe/symfony3.php';
-require 'vendor/deployer/recipes/recipe/yarn.php';
+require 'recipe/symfony4.php';
+require 'vendor/deployer/recipes/recipe/npm.php';
 
-// Configuration
+// Project repository
+set('repository', 'git@github.com:Cryde/test-insult-sf4.git');
 
-set('repository', 'git@github.com:Cryde/insult.es.git');
+// [Optional] Allocate tty for git clone. Default value is false.
+set('git_tty', true);
 
-set('git_tty', true); // [Optional] Allocate tty for git on first deployment
 set('keep_releases', 2);
+
+// Shared files/dirs between deploys 
 add('shared_files', []);
-add('shared_dirs', []);
+add('shared_dirs', ['var/sessions']);
+
+// Writable dirs by web server 
 add('writable_dirs', []);
 
 // Hosts
 inventory('hosts.yml');
 
+set('env', function () {
+    return [
+        'APP_ENV' => get('APP_ENV'),
+        'DATABASE_URL' => get('DATABASE_URL')
+    ];
+});
+
 // Tasks
 desc('Build Brunch assets');
 task('assets:build', function() {
-    run('cd {{release_path}} && {{bin/yarn}} run build:prod');
+    run('cd {{release_path}} && {{bin/npm}} run build');
 });
-after('yarn:install', 'assets:build');
+after('npm:install', 'assets:build');
 
 desc('Remove node_modules folder');
 task('assets:clean', function() {
@@ -33,10 +44,23 @@ after('deploy:symlink', 'assets:clean');
 
 desc('Restart PHP-FPM service');
 task('php-fpm:restart', function() {
-    run('sudo service php7.1-fpm reload');
+    run('sudo service php7.2-fpm reload');
 });
-after('deploy:symlink', 'php-fpm:restart');
+after('cleanup', 'php-fpm:restart');
+
+
+task('deploy:cache:clear', function () {
+	    run('{{bin/php}} {{bin/console}} cache:clear --no-warmup');
+})->desc('Clear cache');
+
+task('deploy:cache:warmup', function () {
+	    run('{{bin/php}} {{bin/console}} cache:warmup');
+})->desc('Warm up cache');
+before('deploy:symlink', 'deploy:cache:clear');
+
+after('deploy:cache:clear', 'deploy:cache:warmup');
+
 
 // Migrate database before symlink new release.
-before('deploy:symlink', 'database:migrate');
-after('deploy:update_code', 'yarn:install');
+//before('deploy:symlink', 'database:migrate');
+after('deploy:update_code', 'npm:install');

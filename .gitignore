@@ -1,43 +1,23 @@
-/app/config/parameters.yml
-/build/
-/phpunit.xml
-/var/*
-!/var/cache
-/var/cache/*
-!var/cache/.gitkeep
-!/var/logs
-/var/logs/*
-!var/logs/.gitkeep
-!/var/sessions
-/var/sessions/*
-!var/sessions/.gitkeep
-!var/SymfonyRequirements.php
+
+###> symfony/framework-bundle ###
+.env
+/public/favicon.ico
+/public/bundles/
+/public/images/*
+/public/*.css
+/public/*.map
+/public/*.js
+/var/
 /vendor/
-/web/bundles/
+###< symfony/framework-bundle ###
 
-
-### Doxygen generated files
-/doc/doxygen
-
-### Generated assets files
-/web/assetic
-/web/images
-/web/css
-/web/fonts
-/web/favicon.ico
-/web/manifest.json
-/web/*.css
-/web/*.css.map
-/web/*.js
-/web/*.js.map
-/web/img
-/web/vendor
-/node_modules/
+###> symfony/web-server-bundle ###
 .web-server-pid
+###< symfony/web-server-bundle ###
 
-### Uploaded files
-/web/uploads
-
-### chore files
-composer.phar
+###> symfony/phpunit-bridge ###
+.phpunit
+/phpunit.xml
+###< symfony/phpunit-bridge ###
+#
 hosts.yml
