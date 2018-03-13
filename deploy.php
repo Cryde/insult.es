@@ -5,7 +5,7 @@ require 'recipe/symfony4.php';
 require 'vendor/deployer/recipes/recipe/npm.php';
 
 // Project repository
-set('repository', 'git@github.com:Cryde/test-insult-sf4.git');
+set('repository', 'git@github.com:Cryde/insult.es.git');
 
 // [Optional] Allocate tty for git clone. Default value is false.
 set('git_tty', true);
