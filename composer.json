@@ -1,6 +1,8 @@
 {
+    "name": "cryde/insult.es",
+    "description": "",
     "type": "project",
-    "license": "proprietary",
+    "license": "MIT",
     "require": {
         "php": "^7.1.3",
         "cocur/slugify": "^3.1",

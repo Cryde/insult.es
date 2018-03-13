@@ -1,7 +1,6 @@
 
 ###> symfony/framework-bundle ###
 .env
-/public/favicon.ico
 /public/bundles/
 /public/images/*
 /public/*.css
