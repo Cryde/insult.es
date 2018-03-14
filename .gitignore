@@ -20,3 +20,4 @@
 ###< symfony/phpunit-bridge ###
 #
 hosts.yml
+node_modules/
