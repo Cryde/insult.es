@@ -40,6 +40,10 @@ nav li a {
     padding: 25px 49px 21px 49px;
 }
 
+nav li a em {
+    font-style: normal;
+}
+
 nav li a.active {
     background: #0D0D0D
 }
@@ -49,8 +53,7 @@ nav li a.active {
     color: #bfbfbf
 }
 
-nav li a span.add-icon,
-nav li a span.random {
+nav li a span {
     display: inline-block;
     margin: 3px 7px 0 0;
     width: 15px;
@@ -58,22 +61,37 @@ nav li a span.random {
     background-image: url(/images/design/sprite.png);
 }
 
-nav li a span.random {
+nav li.vote-up span {
+    background-position: 0 -99px;
+}
+nav li.vote-up:hover span {
+    background-position: -18px -99px;
+}
+
+nav li.vote-down span {
+    background-position: -37px -99px;
+}
+
+nav li.vote-down:hover span {
+    background-position: -55px -99px;
+}
+
+nav li.random a span {
     width: 18px;
     height: 14px;
     background-position: 0 -170px;
 }
 
-nav li a:hover span.random {
+nav li.random a:hover span {
     background-position: -28px -170px
 }
 
-nav li a span.add-icon {
+nav li.add a span {
     background-position: -56px -169px
 }
 
-nav li a:hover span.add-icon,
-nav li a.active span.add-icon {
+nav li.add a:hover span,
+nav li.add a.active span{
     background-position: -81px -169px
 }
 
@@ -136,5 +154,9 @@ nav li a:last-of-type {
 @media only screen and (max-width: 550px) {
     .hide-sm {
         display: none;
+    }
+
+    nav li a {
+        padding: 25px 30px 21px 30px;
     }
 }

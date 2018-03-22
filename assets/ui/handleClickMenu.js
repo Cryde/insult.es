@@ -29,11 +29,13 @@ function randomMenuItemClick(e) {
  */
 function addInsultMenuItemClick(e) {
   e.preventDefault();
-  this.classList.toggle('active');
-  document
+  if (e.target.nodeName !== 'INPUT' && e.target.nodeName !== 'TEXTAREA') {
+    this.classList.toggle('active');
+    document
     .querySelector('.form-send')
     .classList
     .toggle('show');
+  }
 }
 
 function getInsultId() {
@@ -42,10 +44,10 @@ function getInsultId() {
 
 export default function handleClickMenu() {
   document
-    .querySelector('nav li a.add')
+    .querySelector('li.add')
     .addEventListener('click', addInsultMenuItemClick, false);
 
-  const getRandomInsultSelector = document.querySelector('.menu a:first-child');
+  const getRandomInsultSelector = document.querySelector('li.random');
   const insultId = getInsultId();
 
   getRandomInsultSelector.addEventListener('click', randomMenuItemClick, false);
