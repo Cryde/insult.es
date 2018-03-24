@@ -64,7 +64,8 @@ nav li a span {
 nav li.vote-up span {
     background-position: 0 -99px;
 }
-nav li.vote-up:hover span {
+nav li.vote-up:hover span,
+nav li.vote-up.active span {
     background-position: -18px -99px;
 }
 
@@ -72,7 +73,8 @@ nav li.vote-down span {
     background-position: -37px -99px;
 }
 
-nav li.vote-down:hover span {
+nav li.vote-down:hover span,
+nav li.vote-down.active span {
     background-position: -55px -99px;
 }
 

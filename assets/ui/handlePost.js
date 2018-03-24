@@ -33,6 +33,6 @@ function submitInsult(e) {
 
 export default function handlePost() {
   document
-    .querySelector('.form-send form')
-    .addEventListener('submit', submitInsult, false);
+    .querySelector('.form-send input')
+    .addEventListener('click', submitInsult, false);
 }

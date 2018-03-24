@@ -1,4 +1,4 @@
-import { getInsult, getRandom } from '../api/insult';
+import {getInsult, getRandom} from '../api/insult';
 
 /**
  * @param response
@@ -6,13 +6,18 @@ import { getInsult, getRandom } from '../api/insult';
 function displayInsult(response) {
   const insultId = response.insult.id;
   const insult = response.insult.value;
+  const currentVote = response.insult.current_vote;
   const insultContainer = document.querySelector('.insult');
+  const voteDownSelector = document.querySelector('.vote-down');
+  const voteUpSelector = document.querySelector('.vote-up');
 
   insultContainer.querySelector('span').innerText = insult;
   window.location.hash = insultId;
 
-  document.querySelector('.vote-down').setAttribute('data-insult-id', insultId);
-  document.querySelector('.vote-up').setAttribute('data-insult-id', insultId);
+  handleVoteDisplay(currentVote);
+
+  voteDownSelector.setAttribute('data-insult-id', insultId);
+  voteUpSelector.setAttribute('data-insult-id', insultId);
 }
 
 function displayError() {
@@ -36,10 +41,7 @@ function addInsultMenuItemClick(e) {
   e.preventDefault();
   if (e.target.nodeName !== 'INPUT' && e.target.nodeName !== 'TEXTAREA') {
     this.classList.toggle('active');
-    document
-    .querySelector('.form-send')
-    .classList
-    .toggle('show');
+    document.querySelector('.form-send').classList.toggle('show');
   }
 }
 
@@ -47,6 +49,7 @@ function getInsultId() {
   return +window.location.hash.replace('#', '');
 }
 
+export {handleVoteDisplay};
 export default function handleClickMenu() {
   document
     .querySelector('li.add')
@@ -61,5 +64,21 @@ export default function handleClickMenu() {
     getInsult(insultId).then(displayInsult).catch(displayError);
   } else {
     getRandomInsultSelector.click();
+  }
+}
+
+function handleVoteDisplay(currentVote) {
+  const voteDownSelector = document.querySelector('.vote-down');
+  const voteUpSelector = document.querySelector('.vote-up');
+
+  voteDownSelector.classList.remove('active');
+  voteUpSelector.classList.remove('active');
+
+  if (currentVote) {
+    if (currentVote === 1) {
+      voteUpSelector.classList.add('active');
+    } else {
+      voteDownSelector.classList.add('active');
+    }
   }
 }
