@@ -5,7 +5,8 @@
 }
 
 a {
-    text-decoration: none
+    text-decoration: none;
+    outline: none;
 }
 
 a img {
