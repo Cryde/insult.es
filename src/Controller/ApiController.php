@@ -120,8 +120,23 @@ class ApiController extends Controller
                 ->setVoterHash($voterHash);
 
             $this->getDoctrine()->getManager()->persist($newInsultVote);
+            if ($vote === 1) {
+                $insult->setTotalVoteUp($insult->getTotalVoteUp() + 1);
+            } else {
+                $insult->setTotalVoteDown($insult->getTotalVoteDown() + 1);
+            }
         } else {
+            $previousVote = $insultVote->getVote();
             $insultVote->setVote($vote);
+            if ($previousVote !== $vote) {
+                if ($vote === 1) {
+                    $insult->setTotalVoteUp($insult->getTotalVoteUp() + 1);
+                    $insult->setTotalVoteDown($insult->getTotalVoteDown() - 1);
+                } else {
+                    $insult->setTotalVoteDown($insult->getTotalVoteDown() + 1);
+                    $insult->setTotalVoteUp($insult->getTotalVoteUp() - 1);
+                }
+            }
         }
 
         $this->getDoctrine()->getManager()->flush();
