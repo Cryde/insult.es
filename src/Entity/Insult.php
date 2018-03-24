@@ -23,7 +23,6 @@ class Insult
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
     /**
      * @var string
      *
@@ -37,21 +36,30 @@ class Insult
      * )
      */
     private $insult;
-
     /**
      * @var string
      *
      * @ORM\Column(name="insult_canonical", type="string", length=255, unique=true)
      */
     private $insultCanonical;
-
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_post", type="datetime")
      */
     private $datePost;
-
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer",options={"unsigned":true, "default":"0"})
+     */
+    private $totalVoteUp;
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer",options={"unsigned":true, "default":"0"})
+     */
+    private $totalVoteDown;
 
     /**
      * Insult constructor.
@@ -139,6 +147,46 @@ class Insult
     public function setDatePost($datePost)
     {
         $this->datePost = $datePost;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTotalVoteUp(): int
+    {
+        return $this->totalVoteUp;
+    }
+
+    /**
+     * @param int $totalVoteUp
+     *
+     * @return Insult
+     */
+    public function setTotalVoteUp(int $totalVoteUp): Insult
+    {
+        $this->totalVoteUp = $totalVoteUp;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTotalVoteDown(): int
+    {
+        return $this->totalVoteDown;
+    }
+
+    /**
+     * @param int $totalVoteDown
+     *
+     * @return Insult
+     */
+    public function setTotalVoteDown(int $totalVoteDown): Insult
+    {
+        $this->totalVoteDown = $totalVoteDown;
 
         return $this;
     }
