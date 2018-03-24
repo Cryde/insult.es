@@ -3,7 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Insult;
+use App\Entity\InsultVote;
 use App\Repository\InsultRepository;
+use App\Repository\InsultVoteRepository;
+use App\Services\VoterHasher;
 use Cocur\Slugify\SlugifyInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -24,7 +27,7 @@ class ApiController extends Controller
      * )
      * @Method({"POST"})
      *
-     * @param Request $request
+     * @param Request          $request
      * @param SlugifyInterface $slugify
      *
      * @return \Symfony\Component\HttpFoundation\JsonResponse
@@ -78,6 +81,49 @@ class ApiController extends Controller
         $randomInsult = $insultRepository->getRandom();
 
         return $this->json($this->formatInsult($randomInsult));
+    }
+
+    /**
+     * @Route("/vote/{id}/{voteType}",
+     *     options = { "expose" = true },
+     *     name = "api_vote_insult"
+     * )
+     * @Method({"GET"})
+     *
+     * @param Insult               $insult
+     * @param string               $voteType
+     * @param VoterHasher          $voterHasher
+     * @param InsultVoteRepository $insultVoteRepository
+     *
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     */
+    public function voteAction(
+        Insult $insult,
+        string $voteType,
+        VoterHasher $voterHasher,
+        InsultVoteRepository $insultVoteRepository
+    ) {
+        if (!in_array($voteType, [InsultVote::VOTE_UP, InsultVote::VOTE_DOWN])) {
+            throw $this->createNotFoundException('Ce type de vote n\'est pas supportééééééééééééééé !');
+        }
+
+        $voterHash  = $voterHasher->hash();
+        $insultVote = $insultVoteRepository->findOneBy(['insult' => $insult, 'voterHash' => $voterHash]);
+
+        if (!$insultVote) {
+            $newInsultVote = (new InsultVote())
+                ->setInsult($insult)
+                ->setVote($voteType === InsultVote::VOTE_UP ? 1 : -1)
+                ->setVoterHash($voterHash);
+
+            $this->getDoctrine()->getManager()->persist($newInsultVote);
+        } else {
+            $insultVote->setVote($voteType === InsultVote::VOTE_UP ? 1 : -1);
+        }
+
+        $this->getDoctrine()->getManager()->flush();
+
+        return $this->json(['data' => ['vote' => InsultVote::VOTE_UP === $voteType ? 1 : -1]]);
     }
 
     /**
