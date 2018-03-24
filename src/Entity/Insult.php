@@ -191,4 +191,3 @@ class Insult
         return $this;
     }
 }
-
