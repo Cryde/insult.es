@@ -5,6 +5,7 @@ tools:
 
 filter:
     excluded_paths:
+        - 'src/Migrations/*'
         - 'app/*'
         - 'tests/*'
         - 'bin/*'
