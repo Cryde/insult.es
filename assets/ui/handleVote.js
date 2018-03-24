@@ -1,19 +1,19 @@
 import {voteInsult} from '../api/insult';
 
-function onVoteInsultClick(type) {
-  return function (e) {
+function typeVoteInsultClick(type) {
+  return function onVoteInsultClick(e) {
     e.preventDefault();
     const id = this.getAttribute('data-insult-id');
     voteInsult(id, type);
-  }
+  };
 }
 
 export default function handleVote() {
   document
   .querySelector('.vote-down')
-  .addEventListener('click', onVoteInsultClick('down'), false);
+  .addEventListener('click', typeVoteInsultClick('down'), false);
 
   document
   .querySelector('.vote-up')
-  .addEventListener('click', onVoteInsultClick('up'), false);
+  .addEventListener('click', typeVoteInsultClick('up'), false);
 }
