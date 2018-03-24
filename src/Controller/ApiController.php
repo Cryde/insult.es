@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\Insult;
 use App\Entity\InsultVote;
 use App\Repository\InsultRepository;
-use App\Repository\InsultVoteRepository;
 use App\Services\InsultFormatter;
 use App\Services\VoteFinder;
 use App\Services\VoterHasher;
@@ -113,21 +112,22 @@ class ApiController extends Controller
 
         $voterHash  = $voterHasher->hash();
         $insultVote = $voteFinder->findByInsultAndVoterHash($insult, $voterHash);
+        $vote       = $voteType === InsultVote::VOTE_UP ? 1 : -1;
 
         if (!$insultVote) {
             $newInsultVote = (new InsultVote())
                 ->setInsult($insult)
-                ->setVote($voteType === InsultVote::VOTE_UP ? 1 : -1)
+                ->setVote($vote)
                 ->setVoterHash($voterHash);
 
             $this->getDoctrine()->getManager()->persist($newInsultVote);
         } else {
-            $insultVote->setVote($voteType === InsultVote::VOTE_UP ? 1 : -1);
+            $insultVote->setVote($vote);
         }
 
         $this->getDoctrine()->getManager()->flush();
 
-        return $this->json(['data' => ['vote' => InsultVote::VOTE_UP === $voteType ? 1 : -1]]);
+        return $this->json(['data' => ['vote' => $vote]]);
     }
 
     /**
