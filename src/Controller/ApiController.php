@@ -6,6 +6,8 @@ use App\Entity\Insult;
 use App\Entity\InsultVote;
 use App\Repository\InsultRepository;
 use App\Repository\InsultVoteRepository;
+use App\Services\InsultFormatter;
+use App\Services\VoteFinder;
 use App\Services\VoterHasher;
 use Cocur\Slugify\SlugifyInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -29,10 +31,11 @@ class ApiController extends Controller
      *
      * @param Request          $request
      * @param SlugifyInterface $slugify
+     * @param InsultFormatter  $insultFormatter
      *
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function addAction(Request $request, SlugifyInterface $slugify)
+    public function addAction(Request $request, SlugifyInterface $slugify, InsultFormatter $insultFormatter)
     {
         $em              = $this->getDoctrine()->getManager();
         $insult          = $request->get('insult', '');
@@ -56,7 +59,7 @@ class ApiController extends Controller
         return $this->json(
             array_merge(
                 ['success' => true],
-                $this->formatInsult($insultEntity)
+                $insultFormatter->format($insultEntity)
             ),
             Response::HTTP_CREATED
         );
@@ -70,17 +73,18 @@ class ApiController extends Controller
      * @Method({"GET"})
      *
      * @param InsultRepository $insultRepository
+     * @param InsultFormatter  $insultFormatter
      *
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      * @throws \Doctrine\ORM\NoResultException
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function getRandomInsultAction(InsultRepository $insultRepository)
+    public function getRandomInsultAction(InsultRepository $insultRepository, InsultFormatter $insultFormatter)
     {
         /** @var Insult $randomInsult */
         $randomInsult = $insultRepository->getRandom();
 
-        return $this->json($this->formatInsult($randomInsult));
+        return $this->json($insultFormatter->format($randomInsult));
     }
 
     /**
@@ -90,10 +94,10 @@ class ApiController extends Controller
      * )
      * @Method({"GET"})
      *
-     * @param Insult               $insult
-     * @param string               $voteType
-     * @param VoterHasher          $voterHasher
-     * @param InsultVoteRepository $insultVoteRepository
+     * @param Insult      $insult
+     * @param string      $voteType
+     * @param VoterHasher $voterHasher
+     * @param VoteFinder  $voteFinder
      *
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
@@ -101,14 +105,14 @@ class ApiController extends Controller
         Insult $insult,
         string $voteType,
         VoterHasher $voterHasher,
-        InsultVoteRepository $insultVoteRepository
+        VoteFinder $voteFinder
     ) {
         if (!in_array($voteType, [InsultVote::VOTE_UP, InsultVote::VOTE_DOWN])) {
             throw $this->createNotFoundException('Ce type de vote n\'est pas supportééééééééééééééé !');
         }
 
         $voterHash  = $voterHasher->hash();
-        $insultVote = $insultVoteRepository->findOneBy(['insult' => $insult, 'voterHash' => $voterHash]);
+        $insultVote = $voteFinder->findByInsultAndVoterHash($insult, $voterHash);
 
         if (!$insultVote) {
             $newInsultVote = (new InsultVote())
@@ -133,29 +137,14 @@ class ApiController extends Controller
      * )
      * @Method({"GET"})
      *
-     * @param Insult $insult
+     * @param Insult          $insult
+     * @param InsultFormatter $insultFormatter
      *
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function getInsultAction(Insult $insult)
+    public function getInsultAction(Insult $insult, InsultFormatter $insultFormatter)
     {
-        return $this->json($this->formatInsult($insult));
-    }
-
-    /**
-     * @param Insult $insult
-     *
-     * @return array
-     */
-    private function formatInsult(Insult $insult): array
-    {
-        return [
-            'insult' => [
-                'id'    => $insult->getId(),
-                'value' => '#' . $insult->getInsult(),
-                'url'   => $this->generateUrl('api_get_insult', ['id' => $insult->getId()])
-            ]
-        ];
+        return $this->json($insultFormatter->format($insult));
     }
 
     /**
