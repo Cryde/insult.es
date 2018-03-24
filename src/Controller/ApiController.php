@@ -43,7 +43,6 @@ class ApiController extends Controller
         $insultEntity = new Insult();
         $insultEntity->setInsult($insult);
         $insultEntity->setInsultCanonical($canonicalInsult);
-        $insultEntity->setDatePost(new \DateTime());
 
         $validator = $this->get('validator');
         $errors    = $validator->validate($insultEntity);

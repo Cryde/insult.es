@@ -54,6 +54,14 @@ class Insult
 
 
     /**
+     * Insult constructor.
+     */
+    public function __construct()
+    {
+        $this->datePost = new \DateTime();
+    }
+
+    /**
      * Get id
      *
      * @return int
