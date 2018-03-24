@@ -59,7 +59,7 @@ task(
         run('sudo service php7.2-fpm reload');
     }
 );
-after('cleanup', 'php-fpm:restart');
+after('deploy:symlink', 'php-fpm:restart');
 
 
 task(
@@ -75,8 +75,7 @@ task(
         run('{{bin/php}} {{bin/console}} cache:warmup');
     }
 )->desc('Warm up cache');
-before('deploy:symlink', 'deploy:cache:clear');
-
+after('deploy:vendors', 'deploy:cache:clear');
 after('deploy:cache:clear', 'deploy:cache:warmup');
 
 
