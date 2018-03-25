@@ -5,9 +5,10 @@ function typeVoteInsultClick(type) {
   return function onVoteInsultClick(e) {
     e.preventDefault();
     const id = this.getAttribute('data-insult-id');
-    voteInsult(id, type);
     handleVoteDisplay(type === 'up' ? 1 : -1);
-    document.querySelector('li.random').click();
+    voteInsult(id, type).then(() => {
+      document.querySelector('li.random').click();
+    });
   };
 }
 
