@@ -66,7 +66,9 @@ class Insult
      */
     public function __construct()
     {
-        $this->datePost = new \DateTime();
+        $this->datePost      = new \DateTime();
+        $this->totalVoteUp   = 0;
+        $this->totalVoteDown = 0;
     }
 
     /**
