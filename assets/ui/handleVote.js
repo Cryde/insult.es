@@ -7,6 +7,7 @@ function typeVoteInsultClick(type) {
     const id = this.getAttribute('data-insult-id');
     voteInsult(id, type);
     handleVoteDisplay(type === 'up' ? 1 : -1);
+    document.querySelector('li.random').click();
   };
 }
 
