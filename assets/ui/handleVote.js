@@ -1,5 +1,4 @@
 import {voteInsult} from '../api/insult';
-import {handleVoteDisplay} from './handleClickMenu';
 
 function typeVoteInsultClick(type) {
   return function onVoteInsultClick(e) {
