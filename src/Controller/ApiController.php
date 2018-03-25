@@ -6,8 +6,7 @@ use App\Entity\Insult;
 use App\Entity\InsultVote;
 use App\Repository\InsultRepository;
 use App\Services\InsultFormatter;
-use App\Services\VoteFinder;
-use App\Services\VoterHasher;
+use App\Services\Vote\VoteHandler;
 use Cocur\Slugify\SlugifyInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -94,52 +93,18 @@ class ApiController extends Controller
      *
      * @param Insult      $insult
      * @param string      $voteType
-     * @param VoterHasher $voterHasher
-     * @param VoteFinder  $voteFinder
+     * @param VoteHandler $voteHandler
      *
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function voteAction(
-        Insult $insult,
-        string $voteType,
-        VoterHasher $voterHasher,
-        VoteFinder $voteFinder
-    ) {
+    public function voteAction(Insult $insult, string $voteType, VoteHandler $voteHandler)
+    {
         if (!in_array($voteType, [InsultVote::VOTE_UP, InsultVote::VOTE_DOWN])) {
             throw $this->createNotFoundException('Ce type de vote n\'est pas supportééééééééééééééé !');
         }
 
-        $voterHash  = $voterHasher->hash();
-        $insultVote = $voteFinder->findByInsultAndVoterHash($insult, $voterHash);
-        $vote       = $voteType === InsultVote::VOTE_UP ? 1 : -1;
-
-        if (!$insultVote) {
-            $newInsultVote = (new InsultVote())
-                ->setInsult($insult)
-                ->setVote($vote)
-                ->setVoterHash($voterHash);
-
-            $this->getDoctrine()->getManager()->persist($newInsultVote);
-            if ($vote === 1) {
-                $insult->setTotalVoteUp($insult->getTotalVoteUp() + 1);
-            } else {
-                $insult->setTotalVoteDown($insult->getTotalVoteDown() + 1);
-            }
-        } else {
-            $previousVote = $insultVote->getVote();
-            $insultVote->setVote($vote);
-            if ($previousVote !== $vote) {
-                if ($vote === 1) {
-                    $insult->setTotalVoteUp($insult->getTotalVoteUp() + 1);
-                    $insult->setTotalVoteDown($insult->getTotalVoteDown() - 1);
-                } else {
-                    $insult->setTotalVoteDown($insult->getTotalVoteDown() + 1);
-                    $insult->setTotalVoteUp($insult->getTotalVoteUp() - 1);
-                }
-            }
-        }
-
-        $this->getDoctrine()->getManager()->flush();
+        $vote = $voteType === InsultVote::VOTE_UP ? 1 : -1;
+        $voteHandler->handleVote($insult, $vote);
 
         return $this->json(['data' => ['vote' => $vote]]);
     }
