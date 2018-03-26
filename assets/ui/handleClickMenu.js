@@ -1,5 +1,22 @@
 import {getInsult, getRandom} from '../api/insult';
 
+
+function handleVoteDisplay(currentVote) {
+  const voteDownSelector = document.querySelector('.vote-down');
+  const voteUpSelector = document.querySelector('.vote-up');
+
+  voteDownSelector.classList.remove('active');
+  voteUpSelector.classList.remove('active');
+
+  if (currentVote) {
+    if (currentVote === 1) {
+      voteUpSelector.classList.add('active');
+    } else {
+      voteDownSelector.classList.add('active');
+    }
+  }
+}
+
 /**
  * @param response
  */
@@ -64,21 +81,5 @@ export default function handleClickMenu() {
     getInsult(insultId).then(displayInsult).catch(displayError);
   } else {
     getRandomInsultSelector.click();
-  }
-}
-
-function handleVoteDisplay(currentVote) {
-  const voteDownSelector = document.querySelector('.vote-down');
-  const voteUpSelector = document.querySelector('.vote-up');
-
-  voteDownSelector.classList.remove('active');
-  voteUpSelector.classList.remove('active');
-
-  if (currentVote) {
-    if (currentVote === 1) {
-      voteUpSelector.classList.add('active');
-    } else {
-      voteDownSelector.classList.add('active');
-    }
   }
 }
