@@ -48,6 +48,11 @@ function displayTotalVote(insult) {
 }
 
 function calculatePercent(total, value) {
+
+  if(value === 0) {
+    return 0;
+  }
+
   return (value / total) * 100;
 }
 
