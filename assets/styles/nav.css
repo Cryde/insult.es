@@ -48,7 +48,7 @@ nav li a.active {
     background: #0D0D0D
 }
 
-nav li a:hover,
+html.non-touch li a:hover,
 nav li a.active {
     color: #bfbfbf
 }
@@ -64,7 +64,7 @@ nav li a span {
 nav li.vote-up span {
     background-position: 0 -99px;
 }
-nav li.vote-up:hover span,
+html.non-touch li.vote-up:hover span,
 nav li.vote-up.active span {
     background-position: -18px -99px;
 }
@@ -73,7 +73,7 @@ nav li.vote-down span {
     background-position: -37px -99px;
 }
 
-nav li.vote-down:hover span,
+html.non-touch li.vote-down:hover span,
 nav li.vote-down.active span {
     background-position: -55px -99px;
 }
@@ -84,7 +84,7 @@ nav li.random a span {
     background-position: 0 -170px;
 }
 
-nav li.random a:hover span {
+html.non-touch li.random a:hover span {
     background-position: -28px -170px
 }
 
@@ -92,7 +92,7 @@ nav li.add a span {
     background-position: -56px -169px
 }
 
-nav li.add a:hover span,
+html.non-touch li.add a:hover span,
 nav li.add a.active span{
     background-position: -81px -169px
 }

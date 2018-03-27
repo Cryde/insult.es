@@ -32,9 +32,12 @@ class InsultFormatter
 
         return [
             'insult' => [
-                'id'           => $insult->getId(),
-                'value'        => '#' . $insult->getInsult(),
-                'current_vote' => $insultVote ? $insultVote->getVote() : null,
+                'id'              => $insult->getId(),
+                'value'           => '#' . $insult->getInsult(),
+                'total_vote_up'   => $insult->getTotalVoteUp(),
+                'total_vote_down' => $insult->getTotalVoteDown(),
+                'total_vote'      => $insult->getTotalVoteDown() + $insult->getTotalVoteUp(),
+                'current_vote'    => $insultVote ? $insultVote->getVote() : null,
             ],
         ];
     }

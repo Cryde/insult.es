@@ -1,0 +1,38 @@
+.vote-container {
+    margin: -100px auto 0 auto;
+    min-width: 200px;
+    max-width: 725px;
+}
+
+.vote-container .bar {
+    width: 0px;
+    position: absolute;
+    height: 5px;
+    background: green;
+    top: 0;
+    transition: width 1s;
+}
+
+.total-vote-up,
+.total-vote-down {
+    display: inline-block;
+    position: relative;
+    height: 150px;
+}
+
+.total-vote-up {
+    width: 50%;
+}
+
+.total-vote-down {
+    width: 50%;
+}
+.total-vote-up .bar{
+    right: 0;
+}
+
+.total-vote-down .bar {
+    background: red;
+    left: 0;
+}
+

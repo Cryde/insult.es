@@ -1,5 +1,5 @@
 import {getInsult, getRandom} from '../api/insult';
-
+import {formatInsultResponse} from '../utils/formatter';
 
 function handleVoteDisplay(currentVote) {
   const voteDownSelector = document.querySelector('.vote-down');
@@ -18,23 +18,37 @@ function handleVoteDisplay(currentVote) {
 }
 
 /**
- * @param response
+ * @param insult
  */
-function displayInsult(response) {
-  const insultId = response.insult.id;
-  const insult = response.insult.value;
-  const currentVote = response.insult.current_vote;
+function displayInsult(insult) {
+  const insultId = insult.id;
+  const value = insult.value;
+  const currentVote = insult.currentVote;
   const insultContainer = document.querySelector('.insult');
   const voteDownSelector = document.querySelector('.vote-down');
   const voteUpSelector = document.querySelector('.vote-up');
 
-  insultContainer.querySelector('span').innerText = insult;
+  insultContainer.querySelector('span').innerText = value;
   window.location.hash = insultId;
 
   handleVoteDisplay(currentVote);
 
   voteDownSelector.setAttribute('data-insult-id', insultId);
   voteUpSelector.setAttribute('data-insult-id', insultId);
+
+  displayTotalVote(insult);
+}
+
+function displayTotalVote(insult) {
+  const totalVoteDownSelector = document.querySelector('.total-vote-down .bar');
+  const totalVoteUpSelector = document.querySelector('.total-vote-up .bar');
+
+  totalVoteDownSelector.style.width = calculatePercent(insult.totalVote, insult.totalVoteDown) + '%';
+  totalVoteUpSelector.style.width = calculatePercent(insult.totalVote, insult.totalVoteUp) + '%';
+}
+
+function calculatePercent(total, value) {
+  return (value / total) * 100;
 }
 
 function displayError() {
@@ -48,7 +62,7 @@ function displayError() {
 function randomMenuItemClick(e) {
   e.preventDefault();
 
-  getRandom().then(displayInsult);
+  getRandom().then(formatInsultResponse).then(displayInsult);
 }
 
 /**
@@ -78,7 +92,7 @@ export default function handleClickMenu() {
   getRandomInsultSelector.addEventListener('click', randomMenuItemClick, false);
 
   if (insultId) {
-    getInsult(insultId).then(displayInsult).catch(displayError);
+    getInsult(insultId).then(formatInsultResponse).then(displayInsult).catch(displayError);
   } else {
     getRandomInsultSelector.click();
   }
