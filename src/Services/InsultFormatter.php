@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Entity\Insult;
+use App\Services\Vote\VoteFinder;
 
 class InsultFormatter
 {

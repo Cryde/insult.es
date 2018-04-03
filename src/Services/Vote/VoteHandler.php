@@ -4,8 +4,6 @@ namespace App\Services\Vote;
 
 use App\Entity\Insult;
 use App\Entity\InsultVote;
-use App\Services\VoteFinder;
-use App\Services\VoterHasher;
 
 class VoteHandler
 {

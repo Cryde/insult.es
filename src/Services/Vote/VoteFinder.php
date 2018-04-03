@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Vote;
 
 use App\Entity\Insult;
 use App\Entity\InsultVote;
 use App\Repository\InsultVoteRepository;
-use App\Services\VoterHasher;
 
 class VoteFinder
 {

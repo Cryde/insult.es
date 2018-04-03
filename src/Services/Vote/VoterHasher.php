@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Vote;
 
 use Symfony\Component\HttpFoundation\RequestStack;
 
