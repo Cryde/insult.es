@@ -72,11 +72,23 @@ class Insult
     }
 
     /**
+     * @param int $id
+     *
+     * @return $this
+     */
+    public function setId(int $id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
      * Get id
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
@@ -86,7 +98,7 @@ class Insult
      *
      * @return string
      */
-    public function getInsult()
+    public function getInsult(): string
     {
         return $this->insult;
     }
@@ -98,7 +110,7 @@ class Insult
      *
      * @return Insult
      */
-    public function setInsult($insult)
+    public function setInsult(string $insult)
     {
         $this->insult = $insult;
 
@@ -110,7 +122,7 @@ class Insult
      *
      * @return string
      */
-    public function getInsultCanonical()
+    public function getInsultCanonical(): string
     {
         return $this->insultCanonical;
     }
@@ -122,7 +134,7 @@ class Insult
      *
      * @return Insult
      */
-    public function setInsultCanonical($insultCanonical)
+    public function setInsultCanonical(string $insultCanonical)
     {
         $this->insultCanonical = $insultCanonical;
 
@@ -134,7 +146,7 @@ class Insult
      *
      * @return \DateTime
      */
-    public function getDatePost()
+    public function getDatePost(): \DateTime
     {
         return $this->datePost;
     }
@@ -146,7 +158,7 @@ class Insult
      *
      * @return Insult
      */
-    public function setDatePost($datePost)
+    public function setDatePost(\DateTime $datePost)
     {
         $this->datePost = $datePost;
 
