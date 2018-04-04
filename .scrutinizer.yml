@@ -10,6 +10,8 @@ filter:
         - 'tests/*'
         - 'bin/*'
         - 'var/*'
+    dependency_paths:
+        - "vendor/"
 build:
     tests:
         override:
@@ -18,6 +20,13 @@ build:
                 coverage:
                     file: 'result'
                     format: 'clover'
+    nodes:
+          analysis:
+              project_setup:
+                  override: true
+              tests:
+                  override:
+                      - php-scrutinizer-run --enable-security-analysis
 checks:
     php:
         verify_property_names: true
