@@ -6,6 +6,7 @@ tools:
 filter:
     excluded_paths:
         - 'src/Migrations/*'
+        - 'deploy.php'
         - 'app/*'
         - 'tests/*'
         - 'bin/*'
