@@ -10,7 +10,14 @@ filter:
         - 'tests/*'
         - 'bin/*'
         - 'var/*'
-
+build:
+    tests:
+        override:
+            -
+                command: 'vendor/bin/simple-phpunit --coverage-clover=result'
+                coverage:
+                    file: 'result'
+                    format: 'clover'
 checks:
     php:
         verify_property_names: true
