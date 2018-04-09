@@ -19,14 +19,14 @@
     "eslint": "^3.12.1",
     "eslint-brunch": "^3.12.0",
     "eslint-config-airbnb": "^15.0.0",
-    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-import": "^2.10.0",
     "eslint-plugin-jsx-a11y": "^5.0",
-    "eslint-plugin-react": "^7.0",
+    "eslint-plugin-react": "^7.7.0",
     "fingerprint-brunch": "^1.2.8",
     "javascript-brunch": "^2.0.0",
     "uglify-js-brunch": "^2.0.1"
   },
   "dependencies": {
-    "whatwg-fetch": "^2.0.1"
+    "whatwg-fetch": "^2.0.4"
   }
 }
