@@ -13,13 +13,6 @@ set('git_tty', true);
 
 set('keep_releases', 2);
 
-// Shared files/dirs between deploys 
-add('shared_files', []);
-add('shared_dirs', ['var/sessions']);
-
-// Writable dirs by web server 
-add('writable_dirs', []);
-
 // Hosts
 inventory('hosts.yml');
 
@@ -60,24 +53,6 @@ task(
     }
 );
 after('deploy:symlink', 'php-fpm:restart');
-
-
-task(
-    'deploy:cache:clear',
-    function () {
-        run('{{bin/php}} {{bin/console}} cache:clear --no-warmup');
-    }
-)->desc('Clear cache');
-
-task(
-    'deploy:cache:warmup',
-    function () {
-        run('{{bin/php}} {{bin/console}} cache:warmup');
-    }
-)->desc('Warm up cache');
-after('deploy:vendors', 'deploy:cache:clear');
-after('deploy:cache:clear', 'deploy:cache:warmup');
-
 
 // Migrate database before symlink new release.
 before('deploy:symlink', 'database:migrate');
