@@ -8,24 +8,24 @@ use App\Repository\InsultRepository;
 use App\Services\InsultFormatter;
 use App\Services\Vote\VoteHandler;
 use Cocur\Slugify\SlugifyInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 /**
  * @Route("/api")
  */
-class ApiController extends Controller
+class ApiController extends AbstractController
 {
     /**
      * @Route("/add",
      *     options = { "expose" = true },
-     *     name = "api_add_insult"
+     *     name = "api_add_insult",
+     *     methods={"POST"}
      * )
-     * @Method({"POST"})
      *
      * @param Request          $request
      * @param SlugifyInterface $slugify
@@ -33,7 +33,7 @@ class ApiController extends Controller
      *
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function addAction(Request $request, SlugifyInterface $slugify, InsultFormatter $insultFormatter)
+    public function addAction(Request $request, SlugifyInterface $slugify, InsultFormatter $insultFormatter, ValidatorInterface $validator)
     {
         $em              = $this->getDoctrine()->getManager();
         $insult          = $request->get('insult', '');
@@ -43,8 +43,7 @@ class ApiController extends Controller
         $insultEntity->setInsult($insult);
         $insultEntity->setInsultCanonical($canonicalInsult);
 
-        $validator = $this->get('validator');
-        $errors    = $validator->validate($insultEntity);
+        $errors = $validator->validate($insultEntity);
 
         if (count($errors) > 0) {
             return $this->json(['success' => false, 'message' => $this->getErrorsArray($errors)]);
@@ -65,9 +64,9 @@ class ApiController extends Controller
     /**
      * @Route("/random",
      *     options = { "expose" = true },
-     *     name = "api_get_random_insult"
+     *     name = "api_get_random_insult",
+     *     methods={"GET"}
      * )
-     * @Method({"GET"})
      *
      * @param InsultRepository $insultRepository
      * @param InsultFormatter  $insultFormatter
@@ -87,9 +86,9 @@ class ApiController extends Controller
     /**
      * @Route("/vote/{id}/{voteType}",
      *     options = { "expose" = true },
-     *     name = "api_vote_insult"
+     *     name = "api_vote_insult",
+     *     methods={"GET"}
      * )
-     * @Method({"GET"})
      *
      * @param Insult      $insult
      * @param string      $voteType
@@ -112,9 +111,9 @@ class ApiController extends Controller
     /**
      * @Route("/insult/{id}",
      *     options = { "expose" = true },
-     *     name = "api_get_insult"
+     *     name = "api_get_insult",
+     *     methods={"GET"}
      * )
-     * @Method({"GET"})
      *
      * @param Insult          $insult
      * @param InsultFormatter $insultFormatter

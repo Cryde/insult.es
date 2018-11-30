@@ -2,15 +2,13 @@
 
 namespace App\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class WebController extends Controller
+class WebController extends AbstractController
 {
     /**
-     * @Route("/", name="homepage")
-     * @Method({"GET"})
+     * @Route("/", name="homepage", methods={"GET"})
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
