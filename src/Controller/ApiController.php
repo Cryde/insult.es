@@ -8,6 +8,9 @@ use App\Repository\InsultRepository;
 use App\Services\InsultFormatter;
 use App\Services\Vote\VoteHandler;
 use Cocur\Slugify\SlugifyInterface;
+use Doctrine\ORM\NonUniqueResultException;
+use Doctrine\ORM\NoResultException;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -27,11 +30,12 @@ class ApiController extends AbstractController
      *     methods={"POST"}
      * )
      *
-     * @param Request          $request
-     * @param SlugifyInterface $slugify
-     * @param InsultFormatter  $insultFormatter
+     * @param Request            $request
+     * @param SlugifyInterface   $slugify
+     * @param InsultFormatter    $insultFormatter
+     * @param ValidatorInterface $validator
      *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     * @return JsonResponse
      */
     public function addAction(Request $request, SlugifyInterface $slugify, InsultFormatter $insultFormatter, ValidatorInterface $validator)
     {
@@ -71,9 +75,9 @@ class ApiController extends AbstractController
      * @param InsultRepository $insultRepository
      * @param InsultFormatter  $insultFormatter
      *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     * @throws \Doctrine\ORM\NoResultException
-     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @return JsonResponse
+     * @throws NoResultException
+     * @throws NonUniqueResultException
      */
     public function getRandomInsultAction(InsultRepository $insultRepository, InsultFormatter $insultFormatter)
     {
@@ -94,7 +98,7 @@ class ApiController extends AbstractController
      * @param string      $voteType
      * @param VoteHandler $voteHandler
      *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     * @return JsonResponse
      */
     public function voteAction(Insult $insult, string $voteType, VoteHandler $voteHandler)
     {
@@ -118,7 +122,7 @@ class ApiController extends AbstractController
      * @param Insult          $insult
      * @param InsultFormatter $insultFormatter
      *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     * @return JsonResponse
      */
     public function getInsultAction(Insult $insult, InsultFormatter $insultFormatter)
     {
