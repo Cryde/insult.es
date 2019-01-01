@@ -1,3 +1,5 @@
+import '../css/app.css';
+
 import 'whatwg-fetch';
 
 import handlePost from './ui/handlePost';

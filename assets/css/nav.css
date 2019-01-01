@@ -16,7 +16,7 @@ nav a.logo {
     margin: 14px 0 0 49px;
     width: 164px;
     height: 41px;
-    background: url(/images/design/sprite.png) no-repeat 0 -119px;
+    background: url(../images/design/sprite.png) no-repeat 0 -119px;
 }
 
 nav .menu {
@@ -58,7 +58,7 @@ nav li a span {
     margin: 3px 7px 0 0;
     width: 15px;
     height: 15px;
-    background-image: url(/images/design/sprite.png);
+    background-image: url(../images/design/sprite.png);
 }
 
 nav li.vote-up span {

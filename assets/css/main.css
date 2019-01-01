@@ -24,7 +24,7 @@ body {
 }
 
 .hp {
-    background: url(/images/design/sprite.png) no-repeat 0 0;
+    background: url(../images/design/sprite.png) no-repeat 0 0;
     width: 86px;
     height: 78px;
     margin: 24px auto 0 auto;

@@ -4,27 +4,14 @@
   "description": "Assets manager common tools for insult.es",
   "version": "0.0.1",
   "scripts": {
-    "watch": "brunch w -s",
-    "build": "brunch b -p"
+    "dev-server": "encore dev-server",
+    "dev": "encore dev",
+    "watch": "encore dev --watch",
+    "build": "encore production"
   },
   "devDependencies": {
-    "auto-reload-brunch": "^2.7.1",
-    "babel-brunch": "^6.0.6",
-    "babel-cli": "^6.18.0",
-    "babel-polyfill": "^6.20.0",
-    "babel-preset-latest": "^6.16.0",
-    "brunch": "^2.10.15",
-    "clean-css-brunch": "^2.0.0",
-    "css-brunch": "^2.6.1",
-    "eslint": "^3.12.1",
-    "eslint-brunch": "^3.12.0",
-    "eslint-config-airbnb": "^15.0.0",
-    "eslint-plugin-import": "^2.13.0",
-    "eslint-plugin-jsx-a11y": "^5.0",
-    "eslint-plugin-react": "^7.10.0",
-    "fingerprint-brunch": "^1.2.8",
-    "javascript-brunch": "^2.0.0",
-    "uglify-js-brunch": "^2.0.1"
+    "@symfony/webpack-encore": "^0.22.2",
+    "webpack-notifier": "^1.7.0"
   },
   "dependencies": {
     "whatwg-fetch": "^2.0.4"
