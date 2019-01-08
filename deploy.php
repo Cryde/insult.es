@@ -27,6 +27,11 @@ set(
 );
 
 // Tasks
+
+task('npm:ci', function () {
+    run("cd {{release_path}} && {{bin/npm}} ci");
+});
+
 desc('Build Brunch assets');
 task(
     'assets:build',
@@ -34,7 +39,7 @@ task(
         run('cd {{release_path}} && {{bin/npm}} run build');
     }
 );
-after('npm:install', 'assets:build');
+after('npm:ci', 'assets:build');
 
 desc('Remove node_modules folder');
 task(
@@ -49,11 +54,11 @@ desc('Restart PHP-FPM service');
 task(
     'php-fpm:restart',
     function () {
-        run('sudo service php7.2-fpm reload');
+        run('sudo service php7.3-fpm reload');
     }
 );
 after('deploy:symlink', 'php-fpm:restart');
 
 // Migrate database before symlink new release.
 before('deploy:symlink', 'database:migrate');
-after('deploy:update_code', 'npm:install');
+after('deploy:update_code', 'npm:ci');
