@@ -10,7 +10,7 @@
     "build": "encore production"
   },
   "devDependencies": {
-    "@symfony/webpack-encore": "^0.23.0",
+    "@symfony/webpack-encore": "^0.26.0",
     "webpack-notifier": "^1.7.0"
   },
   "dependencies": {
