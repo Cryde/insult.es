@@ -29,7 +29,7 @@
         "symfony/dotenv": "^4.0",
         "symfony/phpunit-bridge": "^4.0",
         "symfony/stopwatch": "^4.0",
-        "symfony/web-profiler-bundle": "^4.0",
+        "symfony/web-profiler-bundle": "^5.0",
         "symfony/web-server-bundle": "^4.0"
     },
     "config": {
