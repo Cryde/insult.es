@@ -22,7 +22,7 @@
         "symfony/validator": "^4.0",
         "symfony/webpack-encore-bundle": "^1.0",
         "symfony/yaml": "^4.0",
-        "twig/twig": "^2.12"
+        "twig/twig": "^3.0"
     },
     "require-dev": {
         "deployer/recipes": "^6.0",
