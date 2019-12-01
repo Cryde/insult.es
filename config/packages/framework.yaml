@@ -13,3 +13,8 @@ framework:
     #fragments: ~
     php_errors:
         log: true
+
+
+
+parameters:
+    kernel.root_dir: ""

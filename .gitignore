@@ -1,26 +1,18 @@
 
 ###> symfony/framework-bundle ###
-.env
+/.env.local
+/.env.local.php
+/.env.*.local
 /public/bundles/
-/public/images/*
-/public/*.css
-/public/*.map
-/public/*.js
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
 
-###> symfony/web-server-bundle ###
-.web-server-pid
-###< symfony/web-server-bundle ###
-
 ###> symfony/phpunit-bridge ###
 .phpunit
+.phpunit.result.cache
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
-#
-hosts.yml
-node_modules/
 
 ###> symfony/webpack-encore-bundle ###
 /node_modules/
@@ -28,3 +20,6 @@ node_modules/
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
+
+
+hosts.yml

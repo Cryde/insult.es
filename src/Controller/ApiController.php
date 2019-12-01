@@ -15,6 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
@@ -31,17 +32,17 @@ class ApiController extends AbstractController
      * )
      *
      * @param Request            $request
-     * @param SlugifyInterface   $slugify
+     * @param SluggerInterface   $slugger
      * @param InsultFormatter    $insultFormatter
      * @param ValidatorInterface $validator
      *
      * @return JsonResponse
      */
-    public function addAction(Request $request, SlugifyInterface $slugify, InsultFormatter $insultFormatter, ValidatorInterface $validator)
+    public function addAction(Request $request, SluggerInterface $slugger, InsultFormatter $insultFormatter, ValidatorInterface $validator)
     {
         $em              = $this->getDoctrine()->getManager();
         $insult          = $request->get('insult', '');
-        $canonicalInsult = $slugify->slugify($insult);
+        $canonicalInsult = $slugger->slug($insult);
 
         $insultEntity = new Insult();
         $insultEntity->setInsult($insult);
