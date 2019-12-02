@@ -7,7 +7,6 @@ use App\Entity\InsultVote;
 use App\Repository\InsultRepository;
 use App\Services\InsultFormatter;
 use App\Services\Vote\VoteHandler;
-use Cocur\Slugify\SlugifyInterface;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\NoResultException;
 use Symfony\Component\HttpFoundation\JsonResponse;
