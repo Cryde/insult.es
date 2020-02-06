@@ -16,16 +16,6 @@ set('keep_releases', 2);
 // Hosts
 inventory('hosts.yml');
 
-set(
-    'env',
-    function () {
-        return [
-            'APP_ENV'      => get('APP_ENV'),
-            'DATABASE_URL' => get('DATABASE_URL'),
-        ];
-    }
-);
-
 // Tasks
 
 task('npm:ci', function () {
