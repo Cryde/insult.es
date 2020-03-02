@@ -2164,16 +2164,16 @@
         },
         {
             "name": "symfony/cache",
-            "version": "v5.0.4",
+            "version": "v5.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/cache.git",
-                "reference": "4572116c640a6bc9fc0047180fe7f9362e5923fc"
+                "reference": "c6255e419e8592dab7de6e29b014ae9e8926989a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/cache/zipball/4572116c640a6bc9fc0047180fe7f9362e5923fc",
-                "reference": "4572116c640a6bc9fc0047180fe7f9362e5923fc",
+                "url": "https://api.github.com/repos/symfony/cache/zipball/c6255e419e8592dab7de6e29b014ae9e8926989a",
+                "reference": "c6255e419e8592dab7de6e29b014ae9e8926989a",
                 "shasum": ""
             },
             "require": {
@@ -2239,7 +2239,7 @@
                 "caching",
                 "psr6"
             ],
-            "time": "2020-01-31T09:13:47+00:00"
+            "time": "2020-02-24T15:05:31+00:00"
         },
         {
             "name": "symfony/cache-contracts",
@@ -2850,16 +2850,16 @@
         },
         {
             "name": "symfony/expression-language",
-            "version": "v5.0.4",
+            "version": "v5.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/expression-language.git",
-                "reference": "2d5f9596301cd43f7b16ba517bb0b7acdae6b903"
+                "reference": "67741ad12ac7fcc157c51d335e66c7b6a475f9b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/expression-language/zipball/2d5f9596301cd43f7b16ba517bb0b7acdae6b903",
-                "reference": "2d5f9596301cd43f7b16ba517bb0b7acdae6b903",
+                "url": "https://api.github.com/repos/symfony/expression-language/zipball/67741ad12ac7fcc157c51d335e66c7b6a475f9b2",
+                "reference": "67741ad12ac7fcc157c51d335e66c7b6a475f9b2",
                 "shasum": ""
             },
             "require": {
@@ -2897,7 +2897,7 @@
             ],
             "description": "Symfony ExpressionLanguage Component",
             "homepage": "https://symfony.com",
-            "time": "2020-01-04T14:08:26+00:00"
+            "time": "2020-02-24T15:05:31+00:00"
         },
         {
             "name": "symfony/filesystem",
@@ -5288,16 +5288,16 @@
         },
         {
             "name": "symfony/var-exporter",
-            "version": "v5.0.4",
+            "version": "v5.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-exporter.git",
-                "reference": "960f9ac0fdbd642461ed29d7717aeb2a94d428b9"
+                "reference": "30779a25c736b4290449eaedefe4196c1d060378"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/960f9ac0fdbd642461ed29d7717aeb2a94d428b9",
-                "reference": "960f9ac0fdbd642461ed29d7717aeb2a94d428b9",
+                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/30779a25c736b4290449eaedefe4196c1d060378",
+                "reference": "30779a25c736b4290449eaedefe4196c1d060378",
                 "shasum": ""
             },
             "require": {
@@ -5344,7 +5344,7 @@
                 "instantiate",
                 "serialize"
             ],
-            "time": "2020-01-04T14:08:26+00:00"
+            "time": "2020-02-04T09:47:34+00:00"
         },
         {
             "name": "symfony/web-link",
