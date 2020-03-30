@@ -2106,16 +2106,16 @@
         },
         {
             "name": "symfony/asset",
-            "version": "v5.0.5",
+            "version": "v5.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/asset.git",
-                "reference": "b9d7f8609849c71e79a0702fdaa453c1329b0c2c"
+                "reference": "1c45fa33e9d25802cefe67b837d1d75d88893f64"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/asset/zipball/b9d7f8609849c71e79a0702fdaa453c1329b0c2c",
-                "reference": "b9d7f8609849c71e79a0702fdaa453c1329b0c2c",
+                "url": "https://api.github.com/repos/symfony/asset/zipball/1c45fa33e9d25802cefe67b837d1d75d88893f64",
+                "reference": "1c45fa33e9d25802cefe67b837d1d75d88893f64",
                 "shasum": ""
             },
             "require": {
@@ -2158,7 +2158,7 @@
             ],
             "description": "Symfony Asset Component",
             "homepage": "https://symfony.com",
-            "time": "2020-02-24T15:05:31+00:00"
+            "time": "2020-03-15T14:33:06+00:00"
         },
         {
             "name": "symfony/cache",
