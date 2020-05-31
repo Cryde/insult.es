@@ -1,6 +1,6 @@
 {
     "deployer/recipes": {
-        "version": "6.0.2"
+        "version": "6.2.2"
     },
     "doctrine/annotations": {
         "version": "1.0",
@@ -65,17 +65,8 @@
     "doctrine/reflection": {
         "version": "v1.0.0"
     },
-    "easycorp/easy-log-handler": {
-        "version": "1.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "1.0",
-            "ref": "70062abc2cd58794d2a90274502f81b55cd9951b"
-        },
-        "files": [
-            "config/packages/dev/easy_log_handler.yaml"
-        ]
+    "doctrine/sql-formatter": {
+        "version": "1.1.0"
     },
     "friendsofsymfony/jsrouting-bundle": {
         "version": "2.0",
@@ -85,9 +76,6 @@
             "version": "2.0",
             "ref": "370bcf99b04c0dfd0b545745aad622d757af5e1b"
         }
-    },
-    "jdorn/sql-formatter": {
-        "version": "v1.2.17"
     },
     "laminas/laminas-zendframework-bridge": {
         "version": "1.0.1"
@@ -188,6 +176,9 @@
     "symfony/dependency-injection": {
         "version": "v4.0.0"
     },
+    "symfony/deprecation-contracts": {
+        "version": "v2.1.2"
+    },
     "symfony/doctrine-bridge": {
         "version": "v4.0.0"
     },
@@ -251,9 +242,6 @@
             "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
         }
     },
-    "symfony/mime": {
-        "version": "v4.3.0"
-    },
     "symfony/monolog-bridge": {
         "version": "v4.0.0"
     },
@@ -284,20 +272,17 @@
     "symfony/polyfill-intl-grapheme": {
         "version": "v1.13.1"
     },
-    "symfony/polyfill-intl-idn": {
-        "version": "v1.11.0"
-    },
     "symfony/polyfill-intl-normalizer": {
         "version": "v1.13.1"
     },
     "symfony/polyfill-mbstring": {
         "version": "v1.6.0"
     },
-    "symfony/polyfill-php72": {
-        "version": "v1.6.0"
-    },
     "symfony/polyfill-php73": {
         "version": "v1.11.0"
+    },
+    "symfony/polyfill-php80": {
+        "version": "v1.17.0"
     },
     "symfony/profiler-pack": {
         "version": "v1.0.4"
