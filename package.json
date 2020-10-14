@@ -11,7 +11,9 @@
   },
   "devDependencies": {
     "@symfony/webpack-encore": "^0.31.0",
-    "webpack-notifier": "^1.8.0"
+    "webpack-notifier": "^1.8.0",
+    "core-js": "^3.0.0",
+    "regenerator-runtime": "^0.13.2"
   },
   "dependencies": {
     "whatwg-fetch": "^3.4.1"
